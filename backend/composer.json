@@ -1,0 +1,16 @@
+{
+    "name": "backend/canarios-app",
+    "description": "Backend modular en PHP",
+    "type": "project",
+    "require": {
+        "slim/slim": "^4.15",
+        "slim/psr7": "^1.8",
+        "vlucas/phpdotenv": "^5.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "Backend\\CanariosApp\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}

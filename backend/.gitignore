@@ -1,0 +1,28 @@
+# Dependencias de Composer
+/vendor/
+
+# Variables de entorno
+.env
+.env.*
+!.env.example
+
+# Logs
+/storage/logs/*
+!/storage/logs/.gitkeep
+
+# Archivos temporales
+*.log
+*.tmp
+*.cache
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editores
+.vscode/
+.idea/
+
+# Archivos PHP empaquetados
+*.phar
