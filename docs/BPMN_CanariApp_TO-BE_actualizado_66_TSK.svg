@@ -1,0 +1,505 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="9160" height="1250" viewBox="0 0 9160 1250" version="1.1">
+  <style>
+  text {font-family: Arial, Helvetica, sans-serif; fill:#202f3b;}
+  .lane {fill:#fff; stroke:#8aa1b4; stroke-width:1.2;}
+  .task {fill:#eaf4ff;stroke:#2e739f;stroke-width:1.9;}
+  .gateway {fill:#ffefa8;stroke:#9b7725;stroke-width:2;}
+  .flow {stroke:#3c4856;stroke-width:1.45;fill:none;stroke-linejoin:round;}
+  .title {font-size:19px;font-weight:700;fill:#1d4e79;}
+  .taskid {font-size:16px;font-weight:700;fill:#184e73;}
+  .tasklabel {font-size:13.7px;}
+  .lane-label {font-size:18px;font-weight:700;fill:#203d52;}
+  .note {font-size:13.5px;fill:#465563;}
+</style>
+  <rect x="0" y="0" width="9160" height="1250" fill="#f8fbff"/>
+  <rect x="20" y="125" width="9075" height="200" fill="#fff" stroke="#b9cbd9" stroke-width="1"/>
+  <rect x="20" y="125" width="136" height="200" fill="#dae9f3" stroke="#b9cbd9" stroke-width="1"/>
+  <text x="36" y="152" class="lane-label">Criador</text>
+  <rect x="20" y="325" width="9075" height="100" fill="#f2f7fa" stroke="#b9cbd9" stroke-width="1"/>
+  <rect x="20" y="325" width="136" height="100" fill="#dae9f3" stroke="#b9cbd9" stroke-width="1"/>
+  <text x="36" y="352" class="lane-label">Administrador</text>
+  <rect x="20" y="425" width="9075" height="230" fill="#fff" stroke="#b9cbd9" stroke-width="1"/>
+  <rect x="20" y="425" width="136" height="230" fill="#dae9f3" stroke="#b9cbd9" stroke-width="1"/>
+  <text x="36" y="452" class="lane-label">Frontend</text>
+  <text x="36" y="472" class="lane-label">PHP</text>
+  <rect x="20" y="655" width="9075" height="290" fill="#f2f7fa" stroke="#b9cbd9" stroke-width="1"/>
+  <rect x="20" y="655" width="136" height="290" fill="#dae9f3" stroke="#b9cbd9" stroke-width="1"/>
+  <text x="36" y="682" class="lane-label">Backend</text>
+  <text x="36" y="702" class="lane-label">PHP</text>
+  <rect x="20" y="945" width="9075" height="215" fill="#fff" stroke="#b9cbd9" stroke-width="1"/>
+  <rect x="20" y="945" width="136" height="215" fill="#dae9f3" stroke="#b9cbd9" stroke-width="1"/>
+  <text x="36" y="972" class="lane-label">PostgreSQL</text>
+  <line x1="967" y1="125" x2="967" y2="1160" stroke="#c9d7e2" stroke-width="1.5" stroke-dasharray="7 7"/>
+  <line x1="1782" y1="125" x2="1782" y2="1160" stroke="#c9d7e2" stroke-width="1.5" stroke-dasharray="7 7"/>
+  <line x1="2597" y1="125" x2="2597" y2="1160" stroke="#c9d7e2" stroke-width="1.5" stroke-dasharray="7 7"/>
+  <line x1="3412" y1="125" x2="3412" y2="1160" stroke="#c9d7e2" stroke-width="1.5" stroke-dasharray="7 7"/>
+  <line x1="4227" y1="125" x2="4227" y2="1160" stroke="#c9d7e2" stroke-width="1.5" stroke-dasharray="7 7"/>
+  <line x1="5042" y1="125" x2="5042" y2="1160" stroke="#c9d7e2" stroke-width="1.5" stroke-dasharray="7 7"/>
+  <line x1="5857" y1="125" x2="5857" y2="1160" stroke="#c9d7e2" stroke-width="1.5" stroke-dasharray="7 7"/>
+  <line x1="6672" y1="125" x2="6672" y2="1160" stroke="#c9d7e2" stroke-width="1.5" stroke-dasharray="7 7"/>
+  <line x1="7487" y1="125" x2="7487" y2="1160" stroke="#c9d7e2" stroke-width="1.5" stroke-dasharray="7 7"/>
+  <line x1="8302" y1="125" x2="8302" y2="1160" stroke="#c9d7e2" stroke-width="1.5" stroke-dasharray="7 7"/>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 8 4 L 0 8 Z" fill="#38495c"/>
+    </marker>
+  </defs>
+  <path d="M200,251 L210,251 L210,261 L220,261" class="flow" marker-end="url(#arrow)"/>
+  <path d="M307.5,292 L307.5,396 L325.5,396 L325.5,500" class="flow" marker-end="url(#arrow)"/>
+  <path d="M325.5,566 L325.5,653 L328,653 L328,740" class="flow" marker-end="url(#arrow)"/>
+  <path d="M423,775 L454.5,775 L454.5,780 L486,780" class="flow" marker-end="url(#arrow)"/>
+  <path d="M523,813 L523,910 L617.5,910 L617.5,1007" class="flow" marker-end="url(#arrow)"/>
+  <path d="M617.5,1007 L617.5,953.5 L785,953.5 L785,900" class="flow" marker-end="url(#arrow)"/>
+  <path d="M785,830 L785,574" class="flow" marker-end="url(#arrow)"/>
+  <path d="M552.21,747 L600,693 L920,693 L920,588 L875,571.33" class="flow" marker-end="url(#arrow)"/>
+  <path d="M785,502 L785,383.5 L915,383.5 L915,265" class="flow" marker-end="url(#arrow)"/>
+  <path d="M1015,251 L1025,251 L1025,261 L1035,261" class="flow" marker-end="url(#arrow)"/>
+  <path d="M1122.5,292 L1122.5,396 L1140.5,396 L1140.5,500" class="flow" marker-end="url(#arrow)"/>
+  <path d="M1140.5,566 L1140.5,653 L1143,653 L1143,740" class="flow" marker-end="url(#arrow)"/>
+  <path d="M1238,775 L1269.5,775 L1269.5,780 L1301,780" class="flow" marker-end="url(#arrow)"/>
+  <path d="M1338,813 L1338,910 L1432.5,910 L1432.5,1007" class="flow" marker-end="url(#arrow)"/>
+  <path d="M1432.5,1007 L1432.5,953.5 L1600,953.5 L1600,900" class="flow" marker-end="url(#arrow)"/>
+  <path d="M1600,830 L1600,574" class="flow" marker-end="url(#arrow)"/>
+  <path d="M1367.21,747 L1415,693 L1735,693 L1735,588 L1690,571.33" class="flow" marker-end="url(#arrow)"/>
+  <path d="M1600,502 L1600,383.5 L1730,383.5 L1730,265" class="flow" marker-end="url(#arrow)"/>
+  <path d="M1830,251 L1840,251 L1840,261 L1850,261" class="flow" marker-end="url(#arrow)"/>
+  <path d="M1937.5,292 L1937.5,396 L1955.5,396 L1955.5,500" class="flow" marker-end="url(#arrow)"/>
+  <path d="M1955.5,566 L1955.5,653 L1958,653 L1958,740" class="flow" marker-end="url(#arrow)"/>
+  <path d="M2053,775 L2084.5,775 L2084.5,780 L2116,780" class="flow" marker-end="url(#arrow)"/>
+  <path d="M2153,813 L2153,910 L2247.5,910 L2247.5,1007" class="flow" marker-end="url(#arrow)"/>
+  <path d="M2247.5,1007 L2247.5,953.5 L2415,953.5 L2415,900" class="flow" marker-end="url(#arrow)"/>
+  <path d="M2415,830 L2415,574" class="flow" marker-end="url(#arrow)"/>
+  <path d="M2182.21,747 L2230,693 L2550,693 L2550,588 L2505,571.33" class="flow" marker-end="url(#arrow)"/>
+  <path d="M2415,502 L2415,383.5 L2545,383.5 L2545,265" class="flow" marker-end="url(#arrow)"/>
+  <path d="M3460,251 L3470,251 L3470,261 L3480,261" class="flow" marker-end="url(#arrow)"/>
+  <path d="M3567.5,292 L3567.5,396 L3585.5,396 L3585.5,500" class="flow" marker-end="url(#arrow)"/>
+  <path d="M3585.5,566 L3585.5,653 L3588,653 L3588,740" class="flow" marker-end="url(#arrow)"/>
+  <path d="M3683,775 L3714.5,775 L3714.5,780 L3746,780" class="flow" marker-end="url(#arrow)"/>
+  <path d="M3783,813 L3783,910 L3877.5,910 L3877.5,1007" class="flow" marker-end="url(#arrow)"/>
+  <path d="M3877.5,1007 L3877.5,953.5 L4045,953.5 L4045,900" class="flow" marker-end="url(#arrow)"/>
+  <path d="M4045,830 L4045,574" class="flow" marker-end="url(#arrow)"/>
+  <path d="M3812.21,747 L3860,693 L4180,693 L4180,588 L4135,571.33" class="flow" marker-end="url(#arrow)"/>
+  <path d="M4045,502 L4045,383.5 L4175,383.5 L4175,265" class="flow" marker-end="url(#arrow)"/>
+  <path d="M4275,251 L4285,251 L4285,261 L4295,261" class="flow" marker-end="url(#arrow)"/>
+  <path d="M4382.5,292 L4382.5,396 L4400.5,396 L4400.5,500" class="flow" marker-end="url(#arrow)"/>
+  <path d="M4400.5,566 L4400.5,653 L4403,653 L4403,740" class="flow" marker-end="url(#arrow)"/>
+  <path d="M4498,775 L4529.5,775 L4529.5,780 L4561,780" class="flow" marker-end="url(#arrow)"/>
+  <path d="M4598,813 L4598,910 L4692.5,910 L4692.5,1007" class="flow" marker-end="url(#arrow)"/>
+  <path d="M4692.5,1007 L4692.5,953.5 L4860,953.5 L4860,900" class="flow" marker-end="url(#arrow)"/>
+  <path d="M4860,830 L4860,574" class="flow" marker-end="url(#arrow)"/>
+  <path d="M4627.21,747 L4675,693 L4995,693 L4995,588 L4950,571.33" class="flow" marker-end="url(#arrow)"/>
+  <path d="M4860,502 L4860,383.5 L4990,383.5 L4990,265" class="flow" marker-end="url(#arrow)"/>
+  <path d="M5090,251 L5100,251 L5100,261 L5110,261" class="flow" marker-end="url(#arrow)"/>
+  <path d="M5197.5,292 L5197.5,396 L5215.5,396 L5215.5,500" class="flow" marker-end="url(#arrow)"/>
+  <path d="M5215.5,566 L5215.5,653 L5218,653 L5218,740" class="flow" marker-end="url(#arrow)"/>
+  <path d="M5313,775 L5344.5,775 L5344.5,780 L5376,780" class="flow" marker-end="url(#arrow)"/>
+  <path d="M5413,813 L5413,910 L5507.5,910 L5507.5,1007" class="flow" marker-end="url(#arrow)"/>
+  <path d="M5507.5,1007 L5507.5,953.5 L5675,953.5 L5675,900" class="flow" marker-end="url(#arrow)"/>
+  <path d="M5675,830 L5675,574" class="flow" marker-end="url(#arrow)"/>
+  <path d="M5442.21,747 L5490,693 L5810,693 L5810,588 L5765,571.33" class="flow" marker-end="url(#arrow)"/>
+  <path d="M5675,502 L5675,383.5 L5805,383.5 L5805,265" class="flow" marker-end="url(#arrow)"/>
+  <path d="M5905,251 L5915,251 L5915,261 L5925,261" class="flow" marker-end="url(#arrow)"/>
+  <path d="M6012.5,292 L6012.5,396 L6030.5,396 L6030.5,500" class="flow" marker-end="url(#arrow)"/>
+  <path d="M6030.5,566 L6030.5,653 L6033,653 L6033,740" class="flow" marker-end="url(#arrow)"/>
+  <path d="M6128,775 L6159.5,775 L6159.5,780 L6191,780" class="flow" marker-end="url(#arrow)"/>
+  <path d="M6228,813 L6228,910 L6322.5,910 L6322.5,1007" class="flow" marker-end="url(#arrow)"/>
+  <path d="M6322.5,1007 L6322.5,953.5 L6490,953.5 L6490,900" class="flow" marker-end="url(#arrow)"/>
+  <path d="M6490,830 L6490,574" class="flow" marker-end="url(#arrow)"/>
+  <path d="M6257.21,747 L6305,693 L6625,693 L6625,588 L6580,571.33" class="flow" marker-end="url(#arrow)"/>
+  <path d="M6490,502 L6490,383.5 L6620,383.5 L6620,265" class="flow" marker-end="url(#arrow)"/>
+  <path d="M6720,377 L6730,377 L6730,384 L6740,384" class="flow" marker-end="url(#arrow)"/>
+  <path d="M6827.5,415 L6827.5,457.5 L6845.5,457.5 L6845.5,500" class="flow" marker-end="url(#arrow)"/>
+  <path d="M6845.5,566 L6845.5,653 L6848,653 L6848,740" class="flow" marker-end="url(#arrow)"/>
+  <path d="M6943,775 L6974.5,775 L6974.5,780 L7006,780" class="flow" marker-end="url(#arrow)"/>
+  <path d="M7043,813 L7043,910 L7137.5,910 L7137.5,1007" class="flow" marker-end="url(#arrow)"/>
+  <path d="M7137.5,1007 L7137.5,953.5 L7305,953.5 L7305,900" class="flow" marker-end="url(#arrow)"/>
+  <path d="M7305,830 L7305,574" class="flow" marker-end="url(#arrow)"/>
+  <path d="M7072.21,747 L7120,693 L7440,693 L7440,588 L7395,571.33" class="flow" marker-end="url(#arrow)"/>
+  <path d="M7305,502 L7305,446.5 L7435,446.5 L7435,391" class="flow" marker-end="url(#arrow)"/>
+  <path d="M2645,251 L2655,251 L2655,263 L2665,263" class="flow" marker-end="url(#arrow)"/>
+  <path d="M2752.5,296 L2752.5,398 L2770.5,398 L2770.5,500" class="flow" marker-end="url(#arrow)"/>
+  <path d="M2770.5,566 L2770.5,653 L2773,653 L2773,740" class="flow" marker-end="url(#arrow)"/>
+  <path d="M2868,775 L2899.5,775 L2899.5,780 L2931,780" class="flow" marker-end="url(#arrow)"/>
+  <path d="M2968,813 L2968,910 L3062.5,910 L3062.5,1007" class="flow" marker-end="url(#arrow)"/>
+  <path d="M3062.5,1007 L3062.5,790.5 L3230,790.5 L3230,574" class="flow" marker-end="url(#arrow)"/>
+  <path d="M3005,780 L3072.5,780 L3072.5,538 L3140,538" class="flow" marker-end="url(#arrow)"/>
+  <path d="M3320,538 L3333,538 L3333,251 L3346,251" class="flow" marker-end="url(#arrow)"/>
+  <path d="M7535,377 L7545,377 L7545,386 L7555,386" class="flow" marker-end="url(#arrow)"/>
+  <path d="M7642.5,419 L7642.5,459.5 L7660.5,459.5 L7660.5,500" class="flow" marker-end="url(#arrow)"/>
+  <path d="M7660.5,566 L7660.5,653 L7663,653 L7663,740" class="flow" marker-end="url(#arrow)"/>
+  <path d="M7758,775 L7789.5,775 L7789.5,780 L7821,780" class="flow" marker-end="url(#arrow)"/>
+  <path d="M7858,813 L7858,910 L7952.5,910 L7952.5,1007" class="flow" marker-end="url(#arrow)"/>
+  <path d="M7952.5,1007 L7952.5,953.5 L8120,953.5 L8120,900" class="flow" marker-end="url(#arrow)"/>
+  <path d="M8120,830 L8120,702 L8120,702 L8120,574" class="flow" marker-end="url(#arrow)"/>
+  <path d="M7895,780 L7962.5,780 L7962.5,538 L8030,538" class="flow" marker-end="url(#arrow)"/>
+  <path d="M8210,538 L8223,538 L8223,377 L8236,377" class="flow" marker-end="url(#arrow)"/>
+  <path d="M8350,251 L8358.5,251 L8358.5,250 L8367,250" class="flow" marker-end="url(#arrow)"/>
+  <path d="M8427,250 L8473,250 L8473,213 L8439,213" class="flow" marker-end="url(#arrow)"/>
+  <path d="M8427,250 L8519.5,250 L8519.5,271 L8612,271" class="flow" marker-end="url(#arrow)"/>
+  <path d="M8599,213 L8646,213 L8646,271 L8612,271" class="flow" marker-end="url(#arrow)"/>
+  <path d="M8692,304 L8692,402 L8699.5,402 L8699.5,500" class="flow" marker-end="url(#arrow)"/>
+  <path d="M8699.5,566 L8699.5,653 L8699.5,653 L8699.5,740" class="flow" marker-end="url(#arrow)"/>
+  <path d="M8787,775 L8799,775 L8799,777 L8811,777" class="flow" marker-end="url(#arrow)"/>
+  <path d="M8843.5,744 L8843.5,526 L8887.5,526 L8887.5,308" class="flow" marker-end="url(#arrow)"/>
+  <path d="M8887.5,308 L8887.5,657.5 L8887.5,657.5 L8887.5,1007" class="flow" marker-end="url(#arrow)"/>
+  <path d="M8887.5,1007 L8887.5,790.5 L8953,790.5 L8953,574" class="flow" marker-end="url(#arrow)"/>
+  <path d="M8843.5,744 L8843.5,659 L8953,659 L8953,574" class="flow" marker-end="url(#arrow)"/>
+  <path d="M8953,502 L8953,383.5 L9065,383.5 L9065,265" class="flow" marker-end="url(#arrow)"/>
+  <circle cx="186.0" cy="251.0" r="14.0" fill="#b1efc6" stroke="#247b4c" stroke-width="2"/>
+  <rect x="220.0" y="230.0" width="175.0" height="62.0" rx="8" ry="8" class="task"/>
+  <text x="307.5" y="247.0" class="taskid" text-anchor="middle">TSK-001</text>
+  <text x="307.5" y="264.0" class="tasklabel" text-anchor="middle">Iniciar Sesión</text>
+  <rect x="233.0" y="500.0" width="185.0" height="66.0" rx="8" ry="8" class="task"/>
+  <text x="325.5" y="517.0" class="taskid" text-anchor="middle">TSK-002</text>
+  <text x="325.5" y="534.0" class="tasklabel" text-anchor="middle">Enviar credenciales</text>
+  <rect x="233.0" y="740.0" width="190.0" height="70.0" rx="8" ry="8" class="task"/>
+  <text x="328.0" y="757.0" class="taskid" text-anchor="middle">TSK-003</text>
+  <text x="328.0" y="774.0" class="tasklabel" text-anchor="middle">Validar formato de</text>
+  <text x="328.0" y="789.0" class="tasklabel" text-anchor="middle">credenciales</text>
+  <rect x="525.0" y="1007.0" width="185.0" height="72.0" rx="8" ry="8" class="task"/>
+  <text x="617.5" y="1024.0" class="taskid" text-anchor="middle">TSK-004</text>
+  <text x="617.5" y="1041.0" class="tasklabel" text-anchor="middle">Consultar usuario</text>
+  <rect x="695.0" y="830.0" width="180.0" height="70.0" rx="8" ry="8" class="task"/>
+  <text x="785.0" y="847.0" class="taskid" text-anchor="middle">TSK-005</text>
+  <text x="785.0" y="864.0" class="tasklabel" text-anchor="middle">Verificar contraseña y</text>
+  <text x="785.0" y="879.0" class="tasklabel" text-anchor="middle">responder</text>
+  <rect x="695.0" y="502.0" width="180.0" height="72.0" rx="8" ry="8" class="task"/>
+  <text x="785.0" y="519.0" class="taskid" text-anchor="middle">TSK-006</text>
+  <text x="785.0" y="536.0" class="tasklabel" text-anchor="middle">Mostrar acceso o error</text>
+  <polygon points="523,747 560,780 523,813 486,780" class="gateway"/>
+  <text x="523.0" y="785.0" font-size="22" fill="#745b18" text-anchor="middle">×</text>
+  <text x="523.0" y="830.0" font-size="12" font-weight="600" text-anchor="middle">¿Datos válidos?</text>
+  <circle cx="915.0" cy="251.0" r="14.0" fill="#ffe3e3" stroke="#c74646" stroke-width="3"/>
+  <circle cx="915.0" cy="251.0" r="10.0" fill="none" stroke="#c74646" stroke-width="2"/>
+  <circle cx="1001.0" cy="251.0" r="14.0" fill="#b1efc6" stroke="#247b4c" stroke-width="2"/>
+  <rect x="1035.0" y="230.0" width="175.0" height="62.0" rx="8" ry="8" class="task"/>
+  <text x="1122.5" y="247.0" class="taskid" text-anchor="middle">TSK-007</text>
+  <text x="1122.5" y="264.0" class="tasklabel" text-anchor="middle">Ingresar datos del</text>
+  <text x="1122.5" y="279.0" class="tasklabel" text-anchor="middle">ejemplar</text>
+  <rect x="1048.0" y="500.0" width="185.0" height="66.0" rx="8" ry="8" class="task"/>
+  <text x="1140.5" y="517.0" class="taskid" text-anchor="middle">TSK-008</text>
+  <text x="1140.5" y="534.0" class="tasklabel" text-anchor="middle">Enviar formulario</text>
+  <rect x="1048.0" y="740.0" width="190.0" height="70.0" rx="8" ry="8" class="task"/>
+  <text x="1143.0" y="757.0" class="taskid" text-anchor="middle">TSK-009</text>
+  <text x="1143.0" y="774.0" class="tasklabel" text-anchor="middle">Validar anillo y</text>
+  <text x="1143.0" y="789.0" class="tasklabel" text-anchor="middle">variedad</text>
+  <rect x="1340.0" y="1007.0" width="185.0" height="72.0" rx="8" ry="8" class="task"/>
+  <text x="1432.5" y="1024.0" class="taskid" text-anchor="middle">TSK-010</text>
+  <text x="1432.5" y="1041.0" class="tasklabel" text-anchor="middle">Guardar ejemplar</text>
+  <rect x="1510.0" y="830.0" width="180.0" height="70.0" rx="8" ry="8" class="task"/>
+  <text x="1600.0" y="847.0" class="taskid" text-anchor="middle">TSK-011</text>
+  <text x="1600.0" y="864.0" class="tasklabel" text-anchor="middle">Preparar confirmación</text>
+  <rect x="1510.0" y="502.0" width="180.0" height="72.0" rx="8" ry="8" class="task"/>
+  <text x="1600.0" y="519.0" class="taskid" text-anchor="middle">TSK-012</text>
+  <text x="1600.0" y="536.0" class="tasklabel" text-anchor="middle">Mostrar ficha o error</text>
+  <polygon points="1338,747 1375,780 1338,813 1301,780" class="gateway"/>
+  <text x="1338.0" y="785.0" font-size="22" fill="#745b18" text-anchor="middle">×</text>
+  <text x="1338.0" y="830.0" font-size="12" font-weight="600" text-anchor="middle">¿Datos válidos?</text>
+  <circle cx="1730.0" cy="251.0" r="14.0" fill="#ffe3e3" stroke="#c74646" stroke-width="3"/>
+  <circle cx="1730.0" cy="251.0" r="10.0" fill="none" stroke="#c74646" stroke-width="2"/>
+  <circle cx="1816.0" cy="251.0" r="14.0" fill="#b1efc6" stroke="#247b4c" stroke-width="2"/>
+  <rect x="1850.0" y="230.0" width="175.0" height="62.0" rx="8" ry="8" class="task"/>
+  <text x="1937.5" y="247.0" class="taskid" text-anchor="middle">TSK-013</text>
+  <text x="1937.5" y="264.0" class="tasklabel" text-anchor="middle">Seleccionar pareja y</text>
+  <text x="1937.5" y="279.0" class="tasklabel" text-anchor="middle">jaula</text>
+  <rect x="1863.0" y="500.0" width="185.0" height="66.0" rx="8" ry="8" class="task"/>
+  <text x="1955.5" y="517.0" class="taskid" text-anchor="middle">TSK-014</text>
+  <text x="1955.5" y="534.0" class="tasklabel" text-anchor="middle">Enviar datos de pareja</text>
+  <rect x="1863.0" y="740.0" width="190.0" height="70.0" rx="8" ry="8" class="task"/>
+  <text x="1958.0" y="757.0" class="taskid" text-anchor="middle">TSK-015</text>
+  <text x="1958.0" y="774.0" class="tasklabel" text-anchor="middle">Validar reglas de</text>
+  <text x="1958.0" y="789.0" class="tasklabel" text-anchor="middle">pareja</text>
+  <rect x="2155.0" y="1007.0" width="185.0" height="72.0" rx="8" ry="8" class="task"/>
+  <text x="2247.5" y="1024.0" class="taskid" text-anchor="middle">TSK-016</text>
+  <text x="2247.5" y="1041.0" class="tasklabel" text-anchor="middle">Guardar pareja</text>
+  <rect x="2325.0" y="830.0" width="180.0" height="70.0" rx="8" ry="8" class="task"/>
+  <text x="2415.0" y="847.0" class="taskid" text-anchor="middle">TSK-017</text>
+  <text x="2415.0" y="864.0" class="tasklabel" text-anchor="middle">Preparar resultado</text>
+  <rect x="2325.0" y="502.0" width="180.0" height="72.0" rx="8" ry="8" class="task"/>
+  <text x="2415.0" y="519.0" class="taskid" text-anchor="middle">TSK-018</text>
+  <text x="2415.0" y="536.0" class="tasklabel" text-anchor="middle">Mostrar pareja o</text>
+  <text x="2415.0" y="551.0" class="tasklabel" text-anchor="middle">rechazo</text>
+  <polygon points="2153,747 2190,780 2153,813 2116,780" class="gateway"/>
+  <text x="2153.0" y="785.0" font-size="22" fill="#745b18" text-anchor="middle">×</text>
+  <text x="2153.0" y="830.0" font-size="12" font-weight="600" text-anchor="middle">¿Datos válidos?</text>
+  <circle cx="2545.0" cy="251.0" r="14.0" fill="#ffe3e3" stroke="#c74646" stroke-width="3"/>
+  <circle cx="2545.0" cy="251.0" r="10.0" fill="none" stroke="#c74646" stroke-width="2"/>
+  <circle cx="3446.0" cy="251.0" r="14.0" fill="#b1efc6" stroke="#247b4c" stroke-width="2"/>
+  <rect x="3480.0" y="230.0" width="175.0" height="62.0" rx="8" ry="8" class="task"/>
+  <text x="3567.5" y="247.0" class="taskid" text-anchor="middle">TSK-019</text>
+  <text x="3567.5" y="264.0" class="tasklabel" text-anchor="middle">Seleccionar</text>
+  <text x="3567.5" y="279.0" class="tasklabel" text-anchor="middle">progenitores y</text>
+  <text x="3567.5" y="294.0" class="tasklabel" text-anchor="middle">mutación</text>
+  <rect x="3493.0" y="500.0" width="185.0" height="66.0" rx="8" ry="8" class="task"/>
+  <text x="3585.5" y="517.0" class="taskid" text-anchor="middle">TSK-020</text>
+  <text x="3585.5" y="534.0" class="tasklabel" text-anchor="middle">Solicitar simulación</text>
+  <rect x="3493.0" y="740.0" width="190.0" height="70.0" rx="8" ry="8" class="task"/>
+  <text x="3588.0" y="757.0" class="taskid" text-anchor="middle">TSK-021</text>
+  <text x="3588.0" y="774.0" class="tasklabel" text-anchor="middle">Validar selección y</text>
+  <text x="3588.0" y="789.0" class="tasklabel" text-anchor="middle">genotipos</text>
+  <rect x="3785.0" y="1007.0" width="185.0" height="72.0" rx="8" ry="8" class="task"/>
+  <text x="3877.5" y="1024.0" class="taskid" text-anchor="middle">TSK-022</text>
+  <text x="3877.5" y="1041.0" class="tasklabel" text-anchor="middle">Consultar tabla de</text>
+  <text x="3877.5" y="1056.0" class="tasklabel" text-anchor="middle">mutaciones</text>
+  <rect x="3955.0" y="830.0" width="180.0" height="70.0" rx="8" ry="8" class="task"/>
+  <text x="4045.0" y="847.0" class="taskid" text-anchor="middle">TSK-023</text>
+  <text x="4045.0" y="864.0" class="tasklabel" text-anchor="middle">Calcular proporciones</text>
+  <text x="4045.0" y="879.0" class="tasklabel" text-anchor="middle">según Mendel</text>
+  <rect x="3955.0" y="502.0" width="180.0" height="72.0" rx="8" ry="8" class="task"/>
+  <text x="4045.0" y="519.0" class="taskid" text-anchor="middle">TSK-024</text>
+  <text x="4045.0" y="536.0" class="tasklabel" text-anchor="middle">Mostrar resultado de</text>
+  <text x="4045.0" y="551.0" class="tasklabel" text-anchor="middle">simulación</text>
+  <polygon points="3783,747 3820,780 3783,813 3746,780" class="gateway"/>
+  <text x="3783.0" y="785.0" font-size="22" fill="#745b18" text-anchor="middle">×</text>
+  <text x="3783.0" y="830.0" font-size="12" font-weight="600" text-anchor="middle">¿Datos válidos?</text>
+  <circle cx="4175.0" cy="251.0" r="14.0" fill="#ffe3e3" stroke="#c74646" stroke-width="3"/>
+  <circle cx="4175.0" cy="251.0" r="10.0" fill="none" stroke="#c74646" stroke-width="2"/>
+  <circle cx="4261.0" cy="251.0" r="14.0" fill="#b1efc6" stroke="#247b4c" stroke-width="2"/>
+  <rect x="4295.0" y="230.0" width="175.0" height="62.0" rx="8" ry="8" class="task"/>
+  <text x="4382.5" y="247.0" class="taskid" text-anchor="middle">TSK-025</text>
+  <text x="4382.5" y="264.0" class="tasklabel" text-anchor="middle">Registrar nidada y</text>
+  <text x="4382.5" y="279.0" class="tasklabel" text-anchor="middle">crías</text>
+  <rect x="4308.0" y="500.0" width="185.0" height="66.0" rx="8" ry="8" class="task"/>
+  <text x="4400.5" y="517.0" class="taskid" text-anchor="middle">TSK-026</text>
+  <text x="4400.5" y="534.0" class="tasklabel" text-anchor="middle">Enviar nidada</text>
+  <rect x="4308.0" y="740.0" width="190.0" height="70.0" rx="8" ry="8" class="task"/>
+  <text x="4403.0" y="757.0" class="taskid" text-anchor="middle">TSK-027</text>
+  <text x="4403.0" y="774.0" class="tasklabel" text-anchor="middle">Validar cruce y</text>
+  <text x="4403.0" y="789.0" class="tasklabel" text-anchor="middle">anillos</text>
+  <rect x="4600.0" y="1007.0" width="185.0" height="72.0" rx="8" ry="8" class="task"/>
+  <text x="4692.5" y="1024.0" class="taskid" text-anchor="middle">TSK-028</text>
+  <text x="4692.5" y="1041.0" class="tasklabel" text-anchor="middle">Guardar nidada y crías</text>
+  <rect x="4770.0" y="830.0" width="180.0" height="70.0" rx="8" ry="8" class="task"/>
+  <text x="4860.0" y="847.0" class="taskid" text-anchor="middle">TSK-029</text>
+  <text x="4860.0" y="864.0" class="tasklabel" text-anchor="middle">Preparar confirmación</text>
+  <rect x="4770.0" y="502.0" width="180.0" height="72.0" rx="8" ry="8" class="task"/>
+  <text x="4860.0" y="519.0" class="taskid" text-anchor="middle">TSK-030</text>
+  <text x="4860.0" y="536.0" class="tasklabel" text-anchor="middle">Mostrar crías</text>
+  <text x="4860.0" y="551.0" class="tasklabel" text-anchor="middle">registradas</text>
+  <polygon points="4598,747 4635,780 4598,813 4561,780" class="gateway"/>
+  <text x="4598.0" y="785.0" font-size="22" fill="#745b18" text-anchor="middle">×</text>
+  <text x="4598.0" y="830.0" font-size="12" font-weight="600" text-anchor="middle">¿Datos válidos?</text>
+  <circle cx="4990.0" cy="251.0" r="14.0" fill="#ffe3e3" stroke="#c74646" stroke-width="3"/>
+  <circle cx="4990.0" cy="251.0" r="10.0" fill="none" stroke="#c74646" stroke-width="2"/>
+  <circle cx="5076.0" cy="251.0" r="14.0" fill="#b1efc6" stroke="#247b4c" stroke-width="2"/>
+  <rect x="5110.0" y="230.0" width="175.0" height="62.0" rx="8" ry="8" class="task"/>
+  <text x="5197.5" y="247.0" class="taskid" text-anchor="middle">TSK-031</text>
+  <text x="5197.5" y="264.0" class="tasklabel" text-anchor="middle">Buscar ejemplar por</text>
+  <text x="5197.5" y="279.0" class="tasklabel" text-anchor="middle">anillo</text>
+  <rect x="5123.0" y="500.0" width="185.0" height="66.0" rx="8" ry="8" class="task"/>
+  <text x="5215.5" y="517.0" class="taskid" text-anchor="middle">TSK-032</text>
+  <text x="5215.5" y="534.0" class="tasklabel" text-anchor="middle">Enviar consulta</text>
+  <rect x="5123.0" y="740.0" width="190.0" height="70.0" rx="8" ry="8" class="task"/>
+  <text x="5218.0" y="757.0" class="taskid" text-anchor="middle">TSK-033</text>
+  <text x="5218.0" y="774.0" class="tasklabel" text-anchor="middle">Validar solicitud</text>
+  <text x="5218.0" y="789.0" class="tasklabel" text-anchor="middle">genealógica</text>
+  <rect x="5415.0" y="1007.0" width="185.0" height="72.0" rx="8" ry="8" class="task"/>
+  <text x="5507.5" y="1024.0" class="taskid" text-anchor="middle">TSK-034</text>
+  <text x="5507.5" y="1041.0" class="tasklabel" text-anchor="middle">Consultar parentesco</text>
+  <rect x="5585.0" y="830.0" width="180.0" height="70.0" rx="8" ry="8" class="task"/>
+  <text x="5675.0" y="847.0" class="taskid" text-anchor="middle">TSK-035</text>
+  <text x="5675.0" y="864.0" class="tasklabel" text-anchor="middle">Construir árbol de dos</text>
+  <text x="5675.0" y="879.0" class="tasklabel" text-anchor="middle">generaciones</text>
+  <rect x="5585.0" y="502.0" width="180.0" height="72.0" rx="8" ry="8" class="task"/>
+  <text x="5675.0" y="519.0" class="taskid" text-anchor="middle">TSK-036</text>
+  <text x="5675.0" y="536.0" class="tasklabel" text-anchor="middle">Mostrar árbol</text>
+  <text x="5675.0" y="551.0" class="tasklabel" text-anchor="middle">genealógico</text>
+  <polygon points="5413,747 5450,780 5413,813 5376,780" class="gateway"/>
+  <text x="5413.0" y="785.0" font-size="22" fill="#745b18" text-anchor="middle">×</text>
+  <text x="5413.0" y="830.0" font-size="12" font-weight="600" text-anchor="middle">¿Datos válidos?</text>
+  <circle cx="5805.0" cy="251.0" r="14.0" fill="#ffe3e3" stroke="#c74646" stroke-width="3"/>
+  <circle cx="5805.0" cy="251.0" r="10.0" fill="none" stroke="#c74646" stroke-width="2"/>
+  <circle cx="5891.0" cy="251.0" r="14.0" fill="#b1efc6" stroke="#247b4c" stroke-width="2"/>
+  <rect x="5925.0" y="230.0" width="175.0" height="62.0" rx="8" ry="8" class="task"/>
+  <text x="6012.5" y="247.0" class="taskid" text-anchor="middle">TSK-037</text>
+  <text x="6012.5" y="264.0" class="tasklabel" text-anchor="middle">Gestionar título y</text>
+  <text x="6012.5" y="279.0" class="tasklabel" text-anchor="middle">descendencia</text>
+  <rect x="5938.0" y="500.0" width="185.0" height="66.0" rx="8" ry="8" class="task"/>
+  <text x="6030.5" y="517.0" class="taskid" text-anchor="middle">TSK-038</text>
+  <text x="6030.5" y="534.0" class="tasklabel" text-anchor="middle">Enviar operación de</text>
+  <text x="6030.5" y="549.0" class="tasklabel" text-anchor="middle">títulos</text>
+  <rect x="5938.0" y="740.0" width="190.0" height="70.0" rx="8" ry="8" class="task"/>
+  <text x="6033.0" y="757.0" class="taskid" text-anchor="middle">TSK-039</text>
+  <text x="6033.0" y="774.0" class="tasklabel" text-anchor="middle">Validar título y</text>
+  <text x="6033.0" y="789.0" class="tasklabel" text-anchor="middle">operaciones</text>
+  <rect x="6230.0" y="1007.0" width="185.0" height="72.0" rx="8" ry="8" class="task"/>
+  <text x="6322.5" y="1024.0" class="taskid" text-anchor="middle">TSK-040</text>
+  <text x="6322.5" y="1041.0" class="tasklabel" text-anchor="middle">Consultar o actualizar</text>
+  <text x="6322.5" y="1056.0" class="tasklabel" text-anchor="middle">registros</text>
+  <rect x="6400.0" y="830.0" width="180.0" height="70.0" rx="8" ry="8" class="task"/>
+  <text x="6490.0" y="847.0" class="taskid" text-anchor="middle">TSK-041</text>
+  <text x="6490.0" y="864.0" class="tasklabel" text-anchor="middle">Agrupar descendencia y</text>
+  <text x="6490.0" y="879.0" class="tasklabel" text-anchor="middle">estados</text>
+  <rect x="6400.0" y="502.0" width="180.0" height="72.0" rx="8" ry="8" class="task"/>
+  <text x="6490.0" y="519.0" class="taskid" text-anchor="middle">TSK-042</text>
+  <text x="6490.0" y="536.0" class="tasklabel" text-anchor="middle">Mostrar títulos y</text>
+  <text x="6490.0" y="551.0" class="tasklabel" text-anchor="middle">crías</text>
+  <polygon points="6228,747 6265,780 6228,813 6191,780" class="gateway"/>
+  <text x="6228.0" y="785.0" font-size="22" fill="#745b18" text-anchor="middle">×</text>
+  <text x="6228.0" y="830.0" font-size="12" font-weight="600" text-anchor="middle">¿Datos válidos?</text>
+  <circle cx="6620.0" cy="251.0" r="14.0" fill="#ffe3e3" stroke="#c74646" stroke-width="3"/>
+  <circle cx="6620.0" cy="251.0" r="10.0" fill="none" stroke="#c74646" stroke-width="2"/>
+  <circle cx="6706.0" cy="377.0" r="14.0" fill="#b1efc6" stroke="#247b4c" stroke-width="2"/>
+  <rect x="6740.0" y="353.0" width="175.0" height="62.0" rx="8" ry="8" class="task"/>
+  <text x="6827.5" y="370.0" class="taskid" text-anchor="middle">TSK-043</text>
+  <text x="6827.5" y="387.0" class="tasklabel" text-anchor="middle">Cargar nomenclador y</text>
+  <text x="6827.5" y="402.0" class="tasklabel" text-anchor="middle">catálogos</text>
+  <rect x="6753.0" y="500.0" width="185.0" height="66.0" rx="8" ry="8" class="task"/>
+  <text x="6845.5" y="517.0" class="taskid" text-anchor="middle">TSK-044</text>
+  <text x="6845.5" y="534.0" class="tasklabel" text-anchor="middle">Enviar archivo o</text>
+  <text x="6845.5" y="549.0" class="tasklabel" text-anchor="middle">actualización</text>
+  <rect x="6753.0" y="740.0" width="190.0" height="70.0" rx="8" ry="8" class="task"/>
+  <text x="6848.0" y="757.0" class="taskid" text-anchor="middle">TSK-045</text>
+  <text x="6848.0" y="774.0" class="tasklabel" text-anchor="middle">Validar códigos y</text>
+  <text x="6848.0" y="789.0" class="tasklabel" text-anchor="middle">tipos</text>
+  <rect x="7045.0" y="1007.0" width="185.0" height="72.0" rx="8" ry="8" class="task"/>
+  <text x="7137.5" y="1024.0" class="taskid" text-anchor="middle">TSK-046</text>
+  <text x="7137.5" y="1041.0" class="tasklabel" text-anchor="middle">Actualizar catálogo</text>
+  <rect x="7215.0" y="830.0" width="180.0" height="70.0" rx="8" ry="8" class="task"/>
+  <text x="7305.0" y="847.0" class="taskid" text-anchor="middle">TSK-047</text>
+  <text x="7305.0" y="864.0" class="tasklabel" text-anchor="middle">Preparar resultado de</text>
+  <text x="7305.0" y="879.0" class="tasklabel" text-anchor="middle">carga</text>
+  <rect x="7215.0" y="502.0" width="180.0" height="72.0" rx="8" ry="8" class="task"/>
+  <text x="7305.0" y="519.0" class="taskid" text-anchor="middle">TSK-048</text>
+  <text x="7305.0" y="536.0" class="tasklabel" text-anchor="middle">Mostrar carga o</text>
+  <text x="7305.0" y="551.0" class="tasklabel" text-anchor="middle">rechazo</text>
+  <polygon points="7043,747 7080,780 7043,813 7006,780" class="gateway"/>
+  <text x="7043.0" y="785.0" font-size="22" fill="#745b18" text-anchor="middle">×</text>
+  <text x="7043.0" y="830.0" font-size="12" font-weight="600" text-anchor="middle">¿Datos válidos?</text>
+  <circle cx="7435.0" cy="377.0" r="14.0" fill="#ffe3e3" stroke="#c74646" stroke-width="3"/>
+  <circle cx="7435.0" cy="377.0" r="10.0" fill="none" stroke="#c74646" stroke-width="2"/>
+  <rect x="160.0" y="129.0" width="780.0" height="44.0" rx="5" fill="#e0eef7" stroke="#9bb8ce" stroke-width="1.1"/>
+  <text x="169.0" y="158.0" class="title">FLUJO 01 — Autenticación (TSK-001–006)</text>
+  <text x="167.0" y="1108.0" class="note">Regla de excepción: Credenciales inválidas → acceso rechazado; cinco intentos fallidos →</text>
+  <text x="167.0" y="1124.0" class="note">bloqueo de 15 minutos.</text>
+  <rect x="975.0" y="129.0" width="780.0" height="44.0" rx="5" fill="#e0eef7" stroke="#9bb8ce" stroke-width="1.1"/>
+  <text x="984.0" y="158.0" class="title">FLUJO 02 — Registro de ejemplares (TSK-007–012)</text>
+  <text x="982.0" y="1108.0" class="note">Regla de excepción: Anillo duplicado, variedad inexistente o campo inválido → indicar el campo</text>
+  <text x="982.0" y="1124.0" class="note">y no guardar.</text>
+  <rect x="1790.0" y="129.0" width="780.0" height="44.0" rx="5" fill="#e0eef7" stroke="#9bb8ce" stroke-width="1.1"/>
+  <text x="1799.0" y="158.0" class="title">FLUJO 03 — Gestión de parejas y jaulas (TSK-013–018)</text>
+  <text x="1797.0" y="1108.0" class="note">Regla de excepción: Mismo sexo, máximo de seis hembras por macho, jaula ocupada o fecha vacía →</text>
+  <text x="1797.0" y="1124.0" class="note">rechazo.</text>
+  <rect x="3420.0" y="129.0" width="780.0" height="44.0" rx="5" fill="#e0eef7" stroke="#9bb8ce" stroke-width="1.1"/>
+  <text x="3429.0" y="158.0" class="title">FLUJO 05 — Simulador genético (TSK-019–024)</text>
+  <text x="3427.0" y="1108.0" class="note">Regla de excepción: Progenitores del mismo sexo o combinación genética no válida → error; no es</text>
+  <text x="3427.0" y="1124.0" class="note">cruza real.</text>
+  <rect x="4235.0" y="129.0" width="780.0" height="44.0" rx="5" fill="#e0eef7" stroke="#9bb8ce" stroke-width="1.1"/>
+  <text x="4244.0" y="158.0" class="title">FLUJO 06 — Registro de nidadas y crías (TSK-025–030)</text>
+  <text x="4242.0" y="1108.0" class="note">Regla de excepción: Pareja inexistente o anillo inválido → rechazo; el sexo puede quedar sin</text>
+  <text x="4242.0" y="1124.0" class="note">registrar.</text>
+  <rect x="5050.0" y="129.0" width="780.0" height="44.0" rx="5" fill="#e0eef7" stroke="#9bb8ce" stroke-width="1.1"/>
+  <text x="5059.0" y="158.0" class="title">FLUJO 07 — Consulta genealógica (TSK-031–036)</text>
+  <text x="5057.0" y="1108.0" class="note">Regla de excepción: Ascendientes faltantes → “No registrado”; ejemplar no encontrado →</text>
+  <text x="5057.0" y="1124.0" class="note">informar.</text>
+  <rect x="5865.0" y="129.0" width="780.0" height="44.0" rx="5" fill="#e0eef7" stroke="#9bb8ce" stroke-width="1.1"/>
+  <text x="5874.0" y="158.0" class="title">FLUJO 08 — Títulos y descendencia (TSK-037–042)</text>
+  <text x="5872.0" y="1108.0" class="note">Regla de excepción: Anillo inexistente → rechazar título; ganador sin crías → mensaje; factor</text>
+  <text x="5872.0" y="1124.0" class="note">portadora obligatorio.</text>
+  <rect x="6680.0" y="129.0" width="780.0" height="44.0" rx="5" fill="#e0eef7" stroke="#9bb8ce" stroke-width="1.1"/>
+  <text x="6689.0" y="158.0" class="title">FLUJO 09 — Nomenclador y catálogos (TSK-043–048)</text>
+  <text x="6687.0" y="1108.0" class="note">Regla de excepción: Código vacío/repetido o tipo inválido → se rechaza todo el archivo, con</text>
+  <text x="6687.0" y="1124.0" class="note">número de fila.</text>
+  <circle cx="2631.0" cy="251.0" r="14.0" fill="#b1efc6" stroke="#247b4c" stroke-width="2"/>
+  <circle cx="3360.0" cy="251.0" r="14.0" fill="#ffe3e3" stroke="#c74646" stroke-width="3"/>
+  <circle cx="3360.0" cy="251.0" r="10.0" fill="none" stroke="#c74646" stroke-width="2"/>
+  <rect x="2665.0" y="230.0" width="175.0" height="66.0" rx="8" ry="8" class="task"/>
+  <text x="2752.5" y="247.0" class="taskid" text-anchor="middle">TSK-049</text>
+  <text x="2752.5" y="264.0" class="tasklabel" text-anchor="middle">Registrar fecha de</text>
+  <text x="2752.5" y="279.0" class="tasklabel" text-anchor="middle">cruce</text>
+  <rect x="2678.0" y="500.0" width="185.0" height="66.0" rx="8" ry="8" class="task"/>
+  <text x="2770.5" y="517.0" class="taskid" text-anchor="middle">TSK-050</text>
+  <text x="2770.5" y="534.0" class="tasklabel" text-anchor="middle">Enviar cruce</text>
+  <rect x="2678.0" y="740.0" width="190.0" height="70.0" rx="8" ry="8" class="task"/>
+  <text x="2773.0" y="757.0" class="taskid" text-anchor="middle">TSK-051</text>
+  <text x="2773.0" y="774.0" class="tasklabel" text-anchor="middle">Validar fecha de cruce</text>
+  <polygon points="2968,747 3005,780 2968,813 2931,780" class="gateway"/>
+  <text x="2968.0" y="785.0" font-size="22" fill="#745b18" text-anchor="middle">×</text>
+  <text x="2968.0" y="830.0" font-size="12" font-weight="600" text-anchor="middle">¿Cruce válido?</text>
+  <rect x="2970.0" y="1007.0" width="185.0" height="72.0" rx="8" ry="8" class="task"/>
+  <text x="3062.5" y="1024.0" class="taskid" text-anchor="middle">TSK-052</text>
+  <text x="3062.5" y="1041.0" class="tasklabel" text-anchor="middle">Guardar cruce</text>
+  <rect x="3140.0" y="502.0" width="180.0" height="72.0" rx="8" ry="8" class="task"/>
+  <text x="3230.0" y="519.0" class="taskid" text-anchor="middle">TSK-053</text>
+  <text x="3230.0" y="536.0" class="tasklabel" text-anchor="middle">Mostrar cruce o</text>
+  <text x="3230.0" y="551.0" class="tasklabel" text-anchor="middle">rechazo</text>
+  <rect x="2605.0" y="129.0" width="780.0" height="44.0" rx="5" fill="#e0eef7" stroke="#9bb8ce" stroke-width="1.1"/>
+  <text x="2614.0" y="158.0" class="title">FLUJO 04 — Registro de fecha de cruce (TSK-049 a TSK-053)</text>
+  <text x="2610.0" y="1108.0" class="note">Excepciones: pareja no activa, fecha vacía o futura. Se informa el rechazo sin guardar el</text>
+  <text x="2610.0" y="1124.0" class="note">cruce.</text>
+  <circle cx="7521.0" cy="377.0" r="14.0" fill="#b1efc6" stroke="#247b4c" stroke-width="2"/>
+  <circle cx="8250.0" cy="377.0" r="14.0" fill="#ffe3e3" stroke="#c74646" stroke-width="3"/>
+  <circle cx="8250.0" cy="377.0" r="10.0" fill="none" stroke="#c74646" stroke-width="2"/>
+  <rect x="7555.0" y="353.0" width="175.0" height="66.0" rx="8" ry="8" class="task"/>
+  <text x="7642.5" y="370.0" class="taskid" text-anchor="middle">TSK-054</text>
+  <text x="7642.5" y="387.0" class="tasklabel" text-anchor="middle">Gestionar cuentas,</text>
+  <text x="7642.5" y="402.0" class="tasklabel" text-anchor="middle">modos o respaldos</text>
+  <rect x="7568.0" y="500.0" width="185.0" height="66.0" rx="8" ry="8" class="task"/>
+  <text x="7660.5" y="517.0" class="taskid" text-anchor="middle">TSK-055</text>
+  <text x="7660.5" y="534.0" class="tasklabel" text-anchor="middle">Enviar solicitud</text>
+  <text x="7660.5" y="549.0" class="tasklabel" text-anchor="middle">administrativa</text>
+  <rect x="7568.0" y="740.0" width="190.0" height="70.0" rx="8" ry="8" class="task"/>
+  <text x="7663.0" y="757.0" class="taskid" text-anchor="middle">TSK-056</text>
+  <text x="7663.0" y="774.0" class="tasklabel" text-anchor="middle">Validar solicitud</text>
+  <text x="7663.0" y="789.0" class="tasklabel" text-anchor="middle">administrativa</text>
+  <polygon points="7858,747 7895,780 7858,813 7821,780" class="gateway"/>
+  <text x="7858.0" y="785.0" font-size="22" fill="#745b18" text-anchor="middle">×</text>
+  <text x="7858.0" y="830.0" font-size="12" font-weight="600" text-anchor="middle">¿Solicitud válida?</text>
+  <rect x="7860.0" y="1007.0" width="185.0" height="72.0" rx="8" ry="8" class="task"/>
+  <text x="7952.5" y="1024.0" class="taskid" text-anchor="middle">TSK-057</text>
+  <text x="7952.5" y="1041.0" class="tasklabel" text-anchor="middle">Guardar cuenta, modo o</text>
+  <text x="7952.5" y="1056.0" class="tasklabel" text-anchor="middle">restauración</text>
+  <rect x="8030.0" y="830.0" width="180.0" height="70.0" rx="8" ry="8" class="task"/>
+  <text x="8120.0" y="847.0" class="taskid" text-anchor="middle">TSK-058</text>
+  <text x="8120.0" y="864.0" class="tasklabel" text-anchor="middle">Aplicar modo y</text>
+  <text x="8120.0" y="879.0" class="tasklabel" text-anchor="middle">preparar resultado</text>
+  <rect x="8030.0" y="502.0" width="180.0" height="72.0" rx="8" ry="8" class="task"/>
+  <text x="8120.0" y="519.0" class="taskid" text-anchor="middle">TSK-059</text>
+  <text x="8120.0" y="536.0" class="tasklabel" text-anchor="middle">Mostrar resultado</text>
+  <text x="8120.0" y="551.0" class="tasklabel" text-anchor="middle">administrativo</text>
+  <rect x="7495.0" y="129.0" width="780.0" height="44.0" rx="5" fill="#e0eef7" stroke="#9bb8ce" stroke-width="1.1"/>
+  <text x="7504.0" y="158.0" class="title">FLUJO 10 — Administración de cuentas, modos y respaldos (TSK-054–059)</text>
+  <text x="7500.0" y="1108.0" class="note">Excepciones: correo duplicado, campos incompletos, restauración en Modo Normal; cierre de</text>
+  <text x="7500.0" y="1124.0" class="note">sesiones de criadores.</text>
+  <circle cx="8336.0" cy="251.0" r="14.0" fill="#b1efc6" stroke="#247b4c" stroke-width="2"/>
+  <circle cx="9065.0" cy="251.0" r="14.0" fill="#ffe3e3" stroke="#c74646" stroke-width="3"/>
+  <circle cx="9065.0" cy="251.0" r="10.0" fill="none" stroke="#c74646" stroke-width="2"/>
+  <polygon points="8397,220 8427,250 8397,280 8367,250" class="gateway"/>
+  <text x="8397.0" y="255.0" font-size="22" fill="#745b18" text-anchor="middle">×</text>
+  <text x="8397.0" y="297.0" font-size="12" font-weight="600" text-anchor="middle">¿Corrección delegada?</text>
+  <rect x="8439.0" y="180.0" width="160.0" height="66.0" rx="8" ry="8" class="task"/>
+  <text x="8519.0" y="197.0" class="taskid" text-anchor="middle">TSK-066</text>
+  <text x="8519.0" y="214.0" class="tasklabel" text-anchor="middle">Solicitar corrección</text>
+  <text x="8519.0" y="229.0" class="tasklabel" text-anchor="middle">al administrador</text>
+  <rect x="8612.0" y="238.0" width="160.0" height="66.0" rx="8" ry="8" class="task"/>
+  <text x="8692.0" y="255.0" class="taskid" text-anchor="middle">TSK-060</text>
+  <text x="8692.0" y="272.0" class="tasklabel" text-anchor="middle">Activar Modo de</text>
+  <text x="8692.0" y="287.0" class="tasklabel" text-anchor="middle">Corrección</text>
+  <rect x="8612.0" y="500.0" width="175.0" height="66.0" rx="8" ry="8" class="task"/>
+  <text x="8699.5" y="517.0" class="taskid" text-anchor="middle">TSK-061</text>
+  <text x="8699.5" y="534.0" class="tasklabel" text-anchor="middle">Enviar corrección</text>
+  <rect x="8612.0" y="740.0" width="175.0" height="70.0" rx="8" ry="8" class="task"/>
+  <text x="8699.5" y="757.0" class="taskid" text-anchor="middle">TSK-062</text>
+  <text x="8699.5" y="774.0" class="tasklabel" text-anchor="middle">Validar corrección</text>
+  <polygon points="8843.5,744 8876,777 8843.5,810 8811,777" class="gateway"/>
+  <text x="8843.5" y="782.0" font-size="22" fill="#745b18" text-anchor="middle">×</text>
+  <text x="8843.5" y="827.0" font-size="12" font-weight="600" text-anchor="middle">¿Corrección válida?</text>
+  <rect x="8805.0" y="238.0" width="165.0" height="70.0" rx="8" ry="8" class="task"/>
+  <text x="8887.5" y="255.0" class="taskid" text-anchor="middle">TSK-063</text>
+  <text x="8887.5" y="272.0" class="tasklabel" text-anchor="middle">Resolver parejas del</text>
+  <text x="8887.5" y="287.0" class="tasklabel" text-anchor="middle">ejemplar</text>
+  <rect x="8805.0" y="1007.0" width="165.0" height="72.0" rx="8" ry="8" class="task"/>
+  <text x="8887.5" y="1024.0" class="taskid" text-anchor="middle">TSK-064</text>
+  <text x="8887.5" y="1041.0" class="tasklabel" text-anchor="middle">Guardar corrección y</text>
+  <text x="8887.5" y="1056.0" class="tasklabel" text-anchor="middle">auditoría</text>
+  <rect x="8868.0" y="502.0" width="170.0" height="72.0" rx="8" ry="8" class="task"/>
+  <text x="8953.0" y="519.0" class="taskid" text-anchor="middle">TSK-065</text>
+  <text x="8953.0" y="536.0" class="tasklabel" text-anchor="middle">Mostrar resultado de</text>
+  <text x="8953.0" y="551.0" class="tasklabel" text-anchor="middle">la corrección</text>
+  <rect x="8310.0" y="129.0" width="780.0" height="44.0" rx="5" fill="#e0eef7" stroke="#9bb8ce" stroke-width="1.1"/>
+  <text x="8319.0" y="158.0" class="title">FLUJO 11 — Modo de Corrección y solicitud delegada (TSK-060–066)</text>
+  <text x="8315.0" y="1108.0" class="note">Excepciones: contraseña incorrecta, variedad incompatible, parejas no resueltas; auditoría</text>
+  <text x="8315.0" y="1124.0" class="note">obligatoria.</text>
+  <!--Vector reference generated directly from BPMN DI. Editable source is .bpmn.-->
+</svg>
