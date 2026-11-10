@@ -9,7 +9,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Backend\\CanariosApp\\": "src/"
+            "Backend\\CanariosApp\\": "app/"
         }
     },
     "minimum-stability": "stable",
