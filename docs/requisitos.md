@@ -22,8 +22,4 @@ Borrador basado en el pedido del cliente. MP valida prioridades y criterios con 
 - Qué significan disponibilidad, generación y monitoreo para el cliente.
 - Cómo se compone el identificador completo del anillo; no asumir que un número corto es único.
 - Cómo se identifican temporalmente las crías que aún no tienen anilla.
-- Qué usuarios usarán la app, qué permisos requieren y si será web o móvil.
-- Tecnologías, fechas y alcance aceptado de cada entrega.
 - Reglas para sugerir parejas y datos necesarios para simular cruces. No inventar porcentajes basados solo en el color visible.
-- Si los horarios de alimentación son solo registro o también recordatorios; el horario lo define el usuario.
-- Si sonido requiere micrófono, grabación continua o archivos; cómo evaluar el resultado. No tratarlo como diagnóstico automático sin validación.
