@@ -12,10 +12,9 @@ Borrador basado en el pedido del cliente. MP valida prioridades y criterios con 
 | R06 | Crías e historial               | Vincular crías a progenitores y consultar la descendencia.                                                     | - |
 | R07 | Títulos de ganador              | Guardar concurso, título y fecha; mostrarlos en la ficha.                                                      | - |
 | R08 | Monitoreo manual                | Registrar observaciones fechadas y consultar su historial.                                                     | - |
-| R09 | Horarios de comida              | Guardar y consultar horarios; confirmar si incluye notificaciones.                                             | - |
-| R10 | Posibles parejas                | Mostrar sugerencias y motivo según reglas acordadas con el cliente.                                            | - |
-| R11 | Simulación de resultados        | Mostrar estimaciones según datos y reglas genéticas validadas; si faltan datos, indicarlo.                     | - |
-| R12 | Monitoreo de sonido             | Definir captura, equipo y objetivo; validar el método antes de presentar conclusiones sobre el estado del ave. | - |
+| R09 | Posibles parejas                | Mostrar sugerencias y motivo según reglas acordadas con el cliente.                                            | - |
+| R10 | Simulación de resultados        | Mostrar estimaciones según datos y reglas genéticas validadas; si faltan datos, indicarlo.                     | - |
+
 
 ## Decisiones pendientes para la primera reunión (ejemplos para el MP)
 
