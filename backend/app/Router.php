@@ -12,14 +12,12 @@ use CanariApp\Backend\Helpers\ResponseHelper;
 final class Router{
     private BramusRouter $router;
 
-    public function __construct()
-    {
+    public function __construct(){
         $this->router = new BramusRouter();
         $this->registerRoutes();
     }
 
-    private function registerRoutes(): void
-    {
+    private function registerRoutes(): void{
         // Punto de entrada general.
         $this->router->get('/', function (): void {
             // Enviamos solo la "data" en el primer parámetro, y el "message" en el segundo.
@@ -71,8 +69,7 @@ final class Router{
         });
     }
 
-    public function run(): void
-    {
+    public function run(): void{
         $this->router->run();
     }
 }
