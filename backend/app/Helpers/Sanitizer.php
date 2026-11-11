@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace CanariApp\Backend\Helpers;
+namespace CanariApp\Backend\App\Helpers;
 
 use DateTimeImmutable;
 use JsonException;
