@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace CanariApp\Backend\Models;
 
+use CanariApp\Backend\Config\Db;
 use InvalidArgumentException;
 use LogicException;
 use PDO;
@@ -13,8 +14,8 @@ use Throwable;
 /**
  * Base para los modelos de la aplicación.
  *
- * Recibe una conexión PDO ya configurada. No crea la conexión por sí mismo
- * para no acoplar los modelos a Config\Db y facilitar las pruebas.
+ * Se conecta automáticamente usando Config\Db por defecto, 
+ * pero permite inyectar una conexión PDO diferente para facilitar las pruebas.
  *
  * Todas las consultas usan sentencias preparadas. Los nombres de tablas y
  * columnas se validan y citan; nunca deben venir directamente del usuario.
@@ -29,11 +30,13 @@ abstract class BaseModel
     /** Columna usada por find(), update() y delete(). */
     protected string $primaryKey = 'id';
 
-    public function __construct(PDO $db)
+    /**
+     * @param PDO|null $db Conexión opcional (para testing). Si es null, usa la global.
+     */
+    public function __construct(?PDO $db = null)
     {
-        $this->db = $db;
-        $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $this->db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+        // Usa la conexión pasada, o llama al Singleton de tu configuración
+        $this->db = $db ?? Db::getConnection();
     }
 
     public function getConnection(): PDO
