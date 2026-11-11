@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Backend\CanariosApp\Router;
+use CanariApp\Backend\Router;
 
 define('BASE_PATH', dirname(__DIR__));
 

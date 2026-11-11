@@ -1,9 +1,9 @@
 <?php
-#composer install (para activartlo ojo es donde la carpeta cd "F:\Universidad\Canarios-app-main\backend")
-#php -S localhost:8000 -t public (para que la pagina sirva recuerda guardar y cerrar el cervidor si has cambiado algo)
+//composer install (para activarlo es donde la carpeta cd "..\Canarios-app\backend")
+//php -S localhost:8000 -t public (para que la pagina sirva recuerda guardar y cerrar el cervidor si has cambiado algo)
 declare(strict_types=1);
 
-namespace Backend\CanariosApp;
+namespace CanariApp\Backend;
 
 use Bramus\Router\Router as BramusRouter;
 
@@ -14,7 +14,7 @@ use Bramus\Router\Router as BramusRouter;
  * estén implementados.
  */
 final class Router
-#http://localhost:8000/ los otros solo pone las cosas de get despues del/ 
+// http://localhost:8000/ los otros solo pone las cosas de get despues del/ 
 {
     private BramusRouter $router;
 
