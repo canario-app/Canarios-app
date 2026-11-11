@@ -1,5 +1,5 @@
 {
-    "name": "backend/canarios-app",
+    "name": "canariapp/backend",
     "description": "Backend modular puro en PHP",
     "type": "project",
     "require": {
@@ -9,7 +9,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Backend\\CanariosApp\\": "src/"
+            "CanariApp\\Backend\\": "app/"
         }
     },
     "minimum-stability": "stable",
