@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace CanariApp\Backend\App\Config;
+namespace CanariApp\Backend\Config;
 
 use DateTimeZone;
 use Dotenv\Dotenv;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace CanariApp\Backend\App\Models;
+namespace CanariApp\Backend\Models;
 
 use InvalidArgumentException;
 use LogicException;
