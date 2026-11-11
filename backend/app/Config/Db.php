@@ -1,7 +1,7 @@
 <?php
 
 // Subimos 2 niveles: de Config -> app -> backend/
-$rootPath = dirname(DIR, 2);
+$rootPath = dirname(__DIR__, 2);
 
 require_once $rootPath . '/vendor/autoload.php';
 
