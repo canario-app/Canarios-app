@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use CanariApp\Backend\Router;
+use CanariApp\Backend\Helpers\ResponseHelper;
 
 define('BASE_PATH', dirname(__DIR__));
 
@@ -15,10 +16,6 @@ if (is_file($envFile)) {
     Dotenv\Dotenv::createImmutable(BASE_PATH)->safeLoad();
 }
 
-// Carga explícita porque composer.json actualmente apunta el autoload PSR-4
-// a src/, mientras que Router.php está ubicado en app/.
-require_once BASE_PATH . '/app/Router.php';
-
 // Evita mostrar errores internos al cliente en ambientes productivos.
 if (($_ENV['APP_DEBUG'] ?? 'false') !== 'true') {
     ini_set('display_errors', '0');
@@ -28,14 +25,14 @@ try {
     $router = new Router();
     $router->run();
 } catch (Throwable $exception) {
+    // 1. Siempre guardamos el error real en los logs del servidor
     error_log((string) $exception);
 
-    http_response_code(500);
-    header('Content-Type: application/json; charset=utf-8');
+    // 2. Si estamos desarrollando (APP_DEBUG=true), mostramos el error real en el JSON
+    if (($_ENV['APP_DEBUG'] ?? 'false') === 'true') {
+        ResponseHelper::internalError($exception->getMessage());
+    }
 
-    echo json_encode([
-        'success' => false,
-        'error' => 'Internal Server Error',
-        'message' => 'Ocurrió un error interno en el servidor.',
-    ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+    // 3. Si estamos en producción, mostramos el mensaje genérico seguro
+    ResponseHelper::internalError('Ocurrió un error interno en el servidor.');
 }
