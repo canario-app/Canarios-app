@@ -50,18 +50,6 @@ final class Router{
             );
         });
 
-        // Ruta modo texto (no usa el helper porque no es JSON)
-        $this->router->get('/gato', function (): void {
-            header('Content-Type: text/plain; charset=utf-8');
-            echo "
-        ╱|、
-        (˚ˎ 。7 
-        |、˜〵 
-        じしˍ,)ノ
-         miau
-        ";
-        });
-
         // Respuesta uniforme cuando una ruta no existe.
         $this->router->set404(function (): void {
             // Usamos directamente el método notFound del helper
