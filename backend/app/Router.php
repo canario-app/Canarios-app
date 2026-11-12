@@ -1,36 +1,34 @@
 <?php
+
 declare(strict_types=1);
 
 namespace CanariApp\Backend;
 
 use Bramus\Router\Router as BramusRouter;
+use CanariApp\Backend\Controllers\AuthController;
 use CanariApp\Backend\Helpers\ResponseHelper;
+use CanariApp\Backend\Middlewares\AuthMiddleware;
 
-/**
- * Registra y ejecuta los puntos de entrada HTTP de la API.
- */
-final class Router{
+final class Router {
     private BramusRouter $router;
 
-    public function __construct(){
+    public function __construct() {
         $this->router = new BramusRouter();
         $this->registerRoutes();
     }
 
-    private function registerRoutes(): void{
-        // Punto de entrada general.
+    private function registerRoutes(): void {
+        // --- RUTAS PÚBLICAS ---
         $this->router->get('/', function (): void {
-            // Enviamos solo la "data" en el primer parámetro, y el "message" en el segundo.
             ResponseHelper::success(
                 [
                     'version' => 'v1',
-                    'documentation' => '/api/v1'
+                    'documentation' => '/api/v1',
                 ],
                 'API de Canarios-app'
             );
         });
 
-        // Comprobación para verificar que el backend está disponible.
         $this->router->get('/api/health', function (): void {
             ResponseHelper::success(
                 ['service' => 'ok'],
@@ -38,26 +36,43 @@ final class Router{
             );
         });
 
-        // Índice de la API.
         $this->router->get('/api/v1', function (): void {
             ResponseHelper::success(
                 [
                     'endpoints' => [
-                        'health' => '/api/health'
-                    ]
+                        'health' => '/api/health',
+                        'login' => '/api/login',
+                        'register' => '/api/register',
+                    ],
                 ],
                 'API Canarios-app v1'
             );
         });
 
-        // Respuesta uniforme cuando una ruta no existe.
+        $this->router->post('/api/login', AuthController::class . '@login');
+        $this->router->post('/api/register', AuthController::class . '@register');
+
+        // --- MIDDLEWARE DE SEGURIDAD ---
+        // Protege cualquier subruta dentro de /api/v1/* (sin afectar /api/v1 exacto)
+        $this->router->before('GET|POST|PUT|PATCH|DELETE', '/api/v1/.+', function (): void {
+            AuthMiddleware::handle();
+        });
+
+        // --- RUTAS PRIVADAS (Requieren Token) ---
+        $this->router->get('/api/v1/me', function (): void {
+            ResponseHelper::success(
+                ['user' => AuthMiddleware::user()],
+                'Usuario autenticado'
+            );
+        });
+
+        // --- 404 ---
         $this->router->set404(function (): void {
-            // Usamos directamente el método notFound del helper
             ResponseHelper::notFound('La ruta solicitada no existe.');
         });
     }
 
-    public function run(): void{
+    public function run(): void {
         $this->router->run();
     }
 }

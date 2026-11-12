@@ -76,6 +76,9 @@ final class App{
             'debug' => $debugValue ?? false,
             'url' => $baseUrl,
             'timezone' => $timezone,
+            'jwt' => [
+                'secret' => self::environmentValue('JWT_SECRET', 'clave_por_defecto_insegura'),
+            ],
             'db' => [
                 'host' => self::environmentValue('DB_HOST', 'postgres'),
                 'port' => self::environmentValue('DB_PORT', '5432'),
