@@ -20,8 +20,7 @@ use Throwable;
  * Todas las consultas usan sentencias preparadas. Los nombres de tablas y
  * columnas se validan y citan; nunca deben venir directamente del usuario.
  */
-abstract class BaseModel
-{
+abstract class BaseModel{
     protected PDO $db;
 
     /** Nombre de la tabla. Cada modelo hijo debe definirlo. */
@@ -33,24 +32,20 @@ abstract class BaseModel
     /**
      * @param PDO|null $db Conexión opcional (para testing). Si es null, usa la global.
      */
-    public function __construct(?PDO $db = null)
-    {
+    public function __construct(?PDO $db = null){
         // Usa la conexión pasada, o llama al Singleton de tu configuración
         $this->db = $db ?? Db::getConnection();
     }
 
-    public function getConnection(): PDO
-    {
+    public function getConnection(): PDO{
         return $this->db;
     }
 
-    public function getTable(): string
-    {
+    public function getTable(): string{
         return $this->table;
     }
 
-    public function getPrimaryKey(): string
-    {
+    public function getPrimaryKey(): string{
         return $this->primaryKey;
     }
 
@@ -59,8 +54,7 @@ abstract class BaseModel
      *
      * @param array<int|string, mixed> $params Parámetros posicionales (0-based) o nombrados.
      */
-    public function query(string $sql, array $params = []): PDOStatement
-    {
+    public function query(string $sql, array $params = []): PDOStatement{
         $statement = $this->db->prepare($sql);
 
         foreach ($params as $key => $value) {
@@ -80,8 +74,7 @@ abstract class BaseModel
      * @param array<int|string, mixed> $params
      * @return array<string, mixed>|null
      */
-    public function fetch(string $sql, array $params = []): ?array
-    {
+    public function fetch(string $sql, array $params = []): ?array{
         $row = $this->query($sql, $params)->fetch(PDO::FETCH_ASSOC);
 
         return $row === false ? null : $row;
@@ -93,8 +86,7 @@ abstract class BaseModel
      * @param array<int|string, mixed> $params
      * @return array<int, array<string, mixed>>
      */
-    public function fetchAll(string $sql, array $params = []): array
-    {
+    public function fetchAll(string $sql, array $params = []): array{
         return $this->query($sql, $params)->fetchAll(PDO::FETCH_ASSOC);
     }
 
@@ -103,8 +95,7 @@ abstract class BaseModel
      *
      * @param array<int|string, mixed> $params
      */
-    public function fetchColumn(string $sql, array $params = [], int $column = 0): mixed
-    {
+    public function fetchColumn(string $sql, array $params = [], int $column = 0): mixed{
         $row = $this->query($sql, $params)->fetch(PDO::FETCH_NUM);
 
         if ($row === false || !array_key_exists($column, $row)) {
@@ -119,8 +110,7 @@ abstract class BaseModel
      *
      * @param array<int|string, mixed> $params
      */
-    public function execute(string $sql, array $params = []): int
-    {
+    public function execute(string $sql, array $params = []): int{
         return $this->query($sql, $params)->rowCount();
     }
 
@@ -130,8 +120,7 @@ abstract class BaseModel
      * @param array<int, string> $columns
      * @return array<string, mixed>|null
      */
-    public function find(mixed $id, array $columns = ['*']): ?array
-    {
+    public function find(mixed $id, array $columns = ['*']): ?array{
         return $this->findBy([$this->primaryKey => $id], $columns);
     }
 
@@ -206,8 +195,7 @@ abstract class BaseModel
      *
      * @param array<string, mixed> $data
      */
-    public function insert(array $data): int|string|null
-    {
+    public function insert(array $data): int|string|null{
         if ($data === []) {
             throw new InvalidArgumentException('No hay datos para insertar.');
         }
@@ -245,8 +233,7 @@ abstract class BaseModel
      *
      * @param array<string, mixed> $data
      */
-    public function update(mixed $id, array $data): int
-    {
+    public function update(mixed $id, array $data): int{
         if ($data === []) {
             throw new InvalidArgumentException('No hay datos para actualizar.');
         }
@@ -275,8 +262,7 @@ abstract class BaseModel
     /**
      * Elimina una fila por su clave primaria.
      */
-    public function delete(mixed $id): int
-    {
+    public function delete(mixed $id): int{
         $sql = sprintf(
             'DELETE FROM %s WHERE %s = :id',
             $this->tableName(),
@@ -291,8 +277,7 @@ abstract class BaseModel
      *
      * @param array<string, mixed> $conditions
      */
-    public function count(array $conditions = []): int
-    {
+    public function count(array $conditions = []): int{
         [$where, $params] = $this->buildWhere($conditions);
 
         $sql = sprintf(
@@ -307,8 +292,7 @@ abstract class BaseModel
     /**
      * Comprueba si existe una fila con la clave primaria indicada.
      */
-    public function exists(mixed $id): bool
-    {
+    public function exists(mixed $id): bool{
         return $this->count([$this->primaryKey => $id]) > 0;
     }
 
@@ -317,8 +301,7 @@ abstract class BaseModel
      *
      * Si el callback lanza una excepción, se hace rollback y se relanza.
      */
-    public function transaction(callable $callback): mixed
-    {
+    public function transaction(callable $callback): mixed{
         $this->db->beginTransaction();
 
         try {
@@ -338,31 +321,26 @@ abstract class BaseModel
         }
     }
 
-    public function beginTransaction(): bool
-    {
+    public function beginTransaction(): bool{
         return $this->db->beginTransaction();
     }
 
-    public function commit(): bool
-    {
+    public function commit(): bool{
         return $this->db->commit();
     }
 
-    public function rollBack(): bool
-    {
+    public function rollBack(): bool{
         return $this->db->rollBack();
     }
 
-    public function inTransaction(): bool
-    {
+    public function inTransaction(): bool{
         return $this->db->inTransaction();
     }
 
     /**
      * Valida y cita un nombre de tabla o columna.
      */
-    public function quoteIdentifier(string $identifier): string
-    {
+    public function quoteIdentifier(string $identifier): string{
         if (preg_match('/^[A-Za-z_][A-Za-z0-9_]*$/', $identifier) !== 1) {
             throw new InvalidArgumentException(
                 sprintf('Identificador SQL inválido: "%s".', $identifier)
@@ -378,8 +356,7 @@ abstract class BaseModel
      * @param array<string, mixed> $conditions
      * @return array{0: string, 1: array<string, mixed>}
      */
-    protected function buildWhere(array $conditions): array
-    {
+    protected function buildWhere(array $conditions): array{
         if ($conditions === []) {
             return ['', []];
         }
@@ -425,8 +402,7 @@ abstract class BaseModel
     /**
      * @param array<string, string>|array<int, string> $orderBy
      */
-    protected function buildOrderBy(array $orderBy): string
-    {
+    protected function buildOrderBy(array $orderBy): string{
         if ($orderBy === []) {
             return '';
         }
@@ -460,23 +436,24 @@ abstract class BaseModel
         return ' ORDER BY ' . implode(', ', $parts);
     }
 
-    protected function buildLimitOffset(?int $limit, int $offset): string
-    {
-        if ($limit === null) {
-            return '';
+    protected function buildLimitOffset(?int $limit, int $offset): string{
+        $sql = '';
+
+        if ($limit !== null) {
+            $sql .= sprintf(' LIMIT %d', max(0, $limit));
         }
 
-        $limit = max(0, $limit);
-        $offset = max(0, $offset);
+        if ($offset > 0) {
+            $sql .= sprintf(' OFFSET %d', $offset);
+        }
 
-        return sprintf(' LIMIT %d OFFSET %d', $limit, $offset);
+        return $sql;
     }
 
     /**
      * @param array<int, string> $columns
      */
-    protected function columnList(array $columns): string
-    {
+    protected function columnList(array $columns): string{
         if ($columns === [] || in_array('*', $columns, true)) {
             return '*';
         }
@@ -487,8 +464,7 @@ abstract class BaseModel
         ));
     }
 
-    protected function tableName(): string
-    {
+    protected function tableName(): string{
         if ($this->table === '') {
             throw new LogicException('El modelo no definió la propiedad $table.');
         }
@@ -496,13 +472,11 @@ abstract class BaseModel
         return $this->quoteIdentifier($this->table);
     }
 
-    protected function driver(): string
-    {
+    protected function driver(): string{
         return (string) $this->db->getAttribute(PDO::ATTR_DRIVER_NAME);
     }
 
-    protected function paramType(mixed $value): int
-    {
+    protected function paramType(mixed $value): int{
         return match (true) {
             $value === null => PDO::PARAM_NULL,
             is_bool($value) => PDO::PARAM_BOOL,
@@ -511,8 +485,7 @@ abstract class BaseModel
         };
     }
 
-    protected function normalizeInsertId(mixed $id): int|string|null
-    {
+    protected function normalizeInsertId(mixed $id): int|string|null{
         if ($id === false || $id === null || $id === '') {
             return null;
         }

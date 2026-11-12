@@ -1,5 +1,4 @@
 <?php
-
 declare(strict_types=1);
 
 use CanariApp\Backend\Router;
@@ -10,29 +9,30 @@ define('BASE_PATH', dirname(__DIR__));
 
 require_once BASE_PATH . '/vendor/autoload.php';
 
-// Carga las variables de entorno
-$envFile = BASE_PATH . '/.env';
-if (is_file($envFile)) {
-    Dotenv\Dotenv::createImmutable(BASE_PATH)->safeLoad();
-}
-
-// Inicializa la configuración global (incluyendo la zona horaria)
-App::boot();
-
-// Evita mostrar errores si debug es false
-if (!App::get('debug', false)) {
-    ini_set('display_errors', '0');
-}
-
 try {
-    $router = new Router();
-    $router->run();
-} catch (Throwable $exception) {
-    error_log((string) $exception);
+    // 1. Cargamos entorno y configuración DENTRO del try
+    $envFile = BASE_PATH . '/.env';
+    if (is_file($envFile)) {
+        Dotenv\Dotenv::createImmutable(BASE_PATH)->safeLoad();
+    }
+    
+    App::boot();
 
-    if (App::get('debug', false)) {
-        ResponseHelper::internalError($exception->getMessage());
+    if (!App::get('debug', false)) {
+        ini_set('display_errors', '0');
     }
 
+    // 2. Ejecutamos el router
+    $router = new Router();
+    $router->run();
+
+} catch (Throwable $exception) {
+    error_log((string) $exception);
+    
+    // Si falla Dotenv o App::boot, ahora pasará por aquí y devolverá un JSON
+    if (class_exists(App::class) && App::get('debug', false)) {
+        ResponseHelper::internalError($exception->getMessage());
+    }
+    
     ResponseHelper::internalError('Ocurrió un error interno en el servidor.');
 }

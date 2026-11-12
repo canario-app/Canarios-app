@@ -11,8 +11,7 @@ use RuntimeException;
 /**
  * Gestor de la conexión a la base de datos PostgreSQL.
  */
-final class Db
-{
+final class Db{
     private static ?PDO $connection = null;
 
     private function __construct() {}
@@ -20,15 +19,14 @@ final class Db
     /**
      * Obtiene la instancia única de la conexión a la base de datos.
      */
-    public static function getConnection(): PDO
-    {
+    public static function getConnection(): PDO{
         if (self::$connection === null) {
-            // Asumimos que Dotenv ya cargó las variables en public/index.php
-            $host     = $_ENV['DB_HOST']     ?? $_SERVER['DB_HOST']     ?? 'postgres';
-            $port     = $_ENV['DB_PORT']     ?? $_SERVER['DB_PORT']     ?? '5432';
-            $db       = $_ENV['DB_NAME']     ?? $_SERVER['DB_NAME']     ?? 'mi_base_datos';
-            $user     = $_ENV['DB_USER']     ?? $_SERVER['DB_USER']     ?? 'postgres';
-            $password = $_ENV['DB_PASSWORD'] ?? $_SERVER['DB_PASSWORD'] ?? 'password';
+            // cargamos la configuración de la base de datos desde App.php
+            $host     = \CanariApp\Backend\Config\App::get('db.host');
+            $port     = \CanariApp\Backend\Config\App::get('db.port');
+            $db       = \CanariApp\Backend\Config\App::get('db.name');
+            $user     = \CanariApp\Backend\Config\App::get('db.user');
+            $password = \CanariApp\Backend\Config\App::get('db.password');
 
             $dsn = "pgsql:host={$host};port={$port};dbname={$db};";
 
