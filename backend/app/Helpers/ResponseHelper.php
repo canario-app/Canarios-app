@@ -12,11 +12,14 @@ class ResponseHelper
         http_response_code($code);
         header('Content-Type: application/json; charset=UTF-8');
 
-        echo json_encode([
-            'status' => 'success',
-            'message' => $message,
-            'data' => $data
-        ]);
+        echo json_encode(
+            [
+                'status' => 'success',
+                'message' => $message,
+                'data' => $data
+            ], 
+            JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR
+        );
         exit;
     }
 
