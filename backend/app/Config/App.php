@@ -10,20 +10,17 @@ use RuntimeException;
 /**
  * Configuración general del backend de CanariApp.
  */
-final class App
-{
+final class App{
     private static bool $initialized = false;
     private static array $configuration = [];
 
     private function __construct() {}
 
-    public static function boot(): void
-    {
+    public static function boot(): void{
         self::initialize();
     }
 
-    public static function get(string $key, mixed $default = null): mixed
-    {
+    public static function get(string $key, mixed $default = null): mixed{
         self::initialize();
 
         $value = self::$configuration;
@@ -38,14 +35,12 @@ final class App
         return $value;
     }
 
-    public static function all(): array
-    {
+    public static function all(): array{
         self::initialize();
         return self::$configuration;
     }
 
-    private static function initialize(): void
-    {
+    private static function initialize(): void{
         if (self::$initialized) {
             return;
         }
@@ -81,6 +76,13 @@ final class App
             'debug' => $debugValue ?? false,
             'url' => $baseUrl,
             'timezone' => $timezone,
+            'db' => [
+                'host' => self::environmentValue('DB_HOST', 'postgres'),
+                'port' => self::environmentValue('DB_PORT', '5432'),
+                'name' => self::environmentValue('DB_NAME', 'mi_base_datos'),
+                'user' => self::environmentValue('DB_USER', 'postgres'),
+                'password' => self::environmentValue('DB_PASSWORD', 'password'),
+            ],
             'paths' => [
                 'root' => $projectRoot,
                 'app' => $projectRoot . DIRECTORY_SEPARATOR . 'app',
@@ -94,8 +96,7 @@ final class App
         self::$initialized = true;
     }
 
-    private static function environmentValue(string $name, string $default): string
-    {
+    private static function environmentValue(string $name, string $default): string{
         $value = $_ENV[$name] ?? $_SERVER[$name] ?? getenv($name);
 
         if ($value === false || $value === null || trim((string) $value) === '') {
