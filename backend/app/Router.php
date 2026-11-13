@@ -6,6 +6,8 @@ namespace CanariApp\Backend;
 
 use Bramus\Router\Router as BramusRouter;
 use CanariApp\Backend\Controllers\AuthController;
+use CanariApp\Backend\Controllers\CriadorController;
+use CanariApp\Backend\Controllers\HomeController;
 use CanariApp\Backend\Helpers\ResponseHelper;
 use CanariApp\Backend\Middlewares\AuthMiddleware;
 
@@ -19,52 +21,40 @@ final class Router {
 
     private function registerRoutes(): void {
         // --- RUTAS PÚBLICAS ---
-        $this->router->get('/', function (): void {
-            ResponseHelper::success(
-                [
-                    'version' => 'v1',
-                    'documentation' => '/api/v1',
-                ],
-                'API de Canarios-app'
-            );
-        });
-
-        $this->router->get('/api/health', function (): void {
-            ResponseHelper::success(
-                ['service' => 'ok'],
-                'Backend disponible'
-            );
-        });
-
-        $this->router->get('/api/v1', function (): void {
-            ResponseHelper::success(
-                [
-                    'endpoints' => [
-                        'health' => '/api/health',
-                        'login' => '/api/login',
-                        'register' => '/api/register',
-                    ],
-                ],
-                'API Canarios-app v1'
-            );
-        });
+        $this->router->get('/', HomeController::class . '@index');
+        $this->router->get('/api/health', HomeController::class . '@health');
+        $this->router->get('/api/v1', HomeController::class . '@v1');
 
         $this->router->post('/api/login', AuthController::class . '@login');
-        $this->router->post('/api/register', AuthController::class . '@register');
 
-        // --- MIDDLEWARE DE SEGURIDAD ---
-        // Protege cualquier subruta dentro de /api/v1/* (sin afectar /api/v1 exacto)
+        // --- MIDDLEWARES DE SEGURIDAD ---
         $this->router->before('GET|POST|PUT|PATCH|DELETE', '/api/v1/.+', function (): void {
             AuthMiddleware::handle();
         });
 
-        // --- RUTAS PRIVADAS (Requieren Token) ---
+        $this->router->before('GET|POST|PUT|PATCH|DELETE', '/api/v1/admin/.+', function (): void {
+            AuthMiddleware::requireRole('administrador');
+        });
+
+        // --- RUTAS PRIVADAS ---
         $this->router->get('/api/v1/me', function (): void {
             ResponseHelper::success(
                 ['user' => AuthMiddleware::user()],
-                'Usuario autenticado'
+                'Usuario autenticado.'
             );
         });
+
+        // Perfil del criador autenticado
+        $this->router->get('/api/v1/criador/perfil', CriadorController::class . '@miPerfil');
+        $this->router->put('/api/v1/criador/perfil', CriadorController::class . '@actualizarPerfil');
+
+        // Gestión administrativa de criadores
+        $this->router->post('/api/v1/admin/register', AuthController::class . '@register');
+        $this->router->get('/api/v1/admin/criadores', CriadorController::class . '@index');
+        $this->router->post('/api/v1/admin/criadores', CriadorController::class . '@store');
+        $this->router->get('/api/v1/admin/criadores/(\d+)', CriadorController::class . '@show');
+        $this->router->put('/api/v1/admin/criadores/(\d+)', CriadorController::class . '@update');
+        $this->router->delete('/api/v1/admin/criadores/(\d+)', CriadorController::class . '@destroy');
 
         // --- 404 ---
         $this->router->set404(function (): void {
