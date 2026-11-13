@@ -6,7 +6,7 @@ namespace CanariApp\Backend;
 
 use Bramus\Router\Router as BramusRouter;
 use CanariApp\Backend\Controllers\AuthController;
-use CanariApp\Backend\Controllers\CriadorController;
+use CanariApp\Backend\Controllers\BreederController;
 use CanariApp\Backend\Controllers\HomeController;
 use CanariApp\Backend\Helpers\ResponseHelper;
 use CanariApp\Backend\Middlewares\AuthMiddleware;
@@ -45,16 +45,19 @@ final class Router {
         });
 
         // Perfil del criador autenticado
-        $this->router->get('/api/v1/criador/perfil', CriadorController::class . '@miPerfil');
-        $this->router->put('/api/v1/criador/perfil', CriadorController::class . '@actualizarPerfil');
+        $this->router->get('/api/v1/criador/perfil', BreederController::class . '@myProfile');
+        $this->router->put('/api/v1/criador/perfil', BreederController::class . '@updateProfile');
 
         // Gestión administrativa de criadores
+        $this->router->get('/api/v1/admin/criadores', BreederController::class . '@index');
+        $this->router->get('/api/v1/admin/criadores/(\d+)', BreederController::class . '@show');
+
         $this->router->post('/api/v1/admin/register', AuthController::class . '@register');
-        $this->router->get('/api/v1/admin/criadores', CriadorController::class . '@index');
-        $this->router->post('/api/v1/admin/criadores', CriadorController::class . '@store');
-        $this->router->get('/api/v1/admin/criadores/(\d+)', CriadorController::class . '@show');
-        $this->router->put('/api/v1/admin/criadores/(\d+)', CriadorController::class . '@update');
-        $this->router->delete('/api/v1/admin/criadores/(\d+)', CriadorController::class . '@destroy');
+        $this->router->post('/api/v1/admin/criadores', BreederController::class . '@store');
+        
+        $this->router->put('/api/v1/admin/criadores/(\d+)', BreederController::class . '@update');
+        
+        $this->router->delete('/api/v1/admin/criadores/(\d+)', BreederController::class . '@destroy');
 
         // --- 404 ---
         $this->router->set404(function (): void {
