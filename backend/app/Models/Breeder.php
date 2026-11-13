@@ -8,46 +8,46 @@ use CanariApp\Backend\Config\Db;
 use Throwable;
 
 class Breeder extends BaseModel {
-    protected string $table = 'breeders';
-    protected string $primaryKey = 'id';
+    protected string $table = 'criador';
+    protected string $primaryKey = 'id_criador';
 
     /**
      * Busca el perfil de criador asociado a un ID de usuario (del token JWT).
      */
     public function findByUserId(int|string $userId): ?array {
-        $sql = "SELECT b.id, b.user_id, b.member_number, b.created_at,
-                       u.name, u.email, u.role
-                FROM {$this->table} b
-                INNER JOIN users u ON b.user_id = u.id
-                WHERE b.user_id = :user_id
+        $sql = "SELECT c.id_criador, c.id_usuario, c.numero_socio, c.fecha_creacion,
+                       u.nombre, u.correo, u.rol
+                FROM {$this->table} c
+                INNER JOIN usuario u ON c.id_usuario = u.id_usuario
+                WHERE c.id_usuario = :id_usuario
                 LIMIT 1";
 
-        return $this->fetch($sql, ['user_id' => $userId]);
+        return $this->fetch($sql, ['id_usuario' => $userId]);
     }
 
     /**
      * Obtiene un criador por su PK junto con los datos de su cuenta de usuario.
      */
     public function findWithUser(int|string $breederId): ?array {
-        $sql = "SELECT b.id, b.user_id, b.member_number, b.created_at,
-                       u.name, u.email, u.role
-                FROM {$this->table} b
-                INNER JOIN users u ON b.user_id = u.id
-                WHERE b.id = :id
+        $sql = "SELECT c.id_criador, c.id_usuario, c.numero_socio, c.fecha_creacion,
+                       u.nombre, u.correo, u.rol
+                FROM {$this->table} c
+                INNER JOIN usuario u ON c.id_usuario = u.id_usuario
+                WHERE c.id_criador = :id_criador
                 LIMIT 1";
 
-        return $this->fetch($sql, ['id' => $breederId]);
+        return $this->fetch($sql, ['id_criador' => $breederId]);
     }
 
     /**
      * Lista todos los criadores ordenados del más reciente al más antiguo.
      */
     public function findAllWithUser(): array {
-        $sql = "SELECT b.id, b.user_id, b.member_number, b.created_at,
-                       u.name, u.email, u.role
-                FROM {$this->table} b
-                INNER JOIN users u ON b.user_id = u.id
-                ORDER BY b.id DESC";
+        $sql = "SELECT c.id_criador, c.id_usuario, c.numero_socio, c.fecha_creacion,
+                       u.nombre, u.correo, u.rol
+                FROM {$this->table} c
+                INNER JOIN usuario u ON c.id_usuario = u.id_usuario
+                ORDER BY c.id_criador DESC";
 
         return $this->fetchAll($sql);
     }
@@ -57,8 +57,8 @@ class Breeder extends BaseModel {
      */
     public function create(array $data): int|string|null {
         return $this->insert([
-            'user_id'       => $data['user_id'],
-            'member_number' => $data['member_number'] ?? null,
+            'id_usuario'   => $data['id_usuario'],
+            'numero_socio' => $data['numero_socio'] ?? null,
         ]);
     }
 
@@ -66,15 +66,15 @@ class Breeder extends BaseModel {
      * Busca criadores por coincidencia parcial en el nombre del usuario.
      */
     public function searchByName(string $name): array {
-        $sql = "SELECT b.id, b.user_id, b.member_number, b.created_at,
-                       u.name, u.email, u.role
-                FROM {$this->table} b
-                INNER JOIN users u ON b.user_id = u.id
-                WHERE u.name ILIKE :name
-                ORDER BY u.name ASC";
+        $sql = "SELECT c.id_criador, c.id_usuario, c.numero_socio, c.fecha_creacion,
+                       u.nombre, u.correo, u.rol
+                FROM {$this->table} c
+                INNER JOIN usuario u ON c.id_usuario = u.id_usuario
+                WHERE u.nombre ILIKE :nombre
+                ORDER BY u.nombre ASC";
 
         return $this->fetchAll($sql, [
-            'name' => '%' . trim($name) . '%',
+            'nombre' => '%' . trim($name) . '%',
         ]);
     }
 
@@ -87,9 +87,9 @@ class Breeder extends BaseModel {
         try {
             $db->beginTransaction();
 
-            // 1. Verificar que el criador exista y obtener su user_id
-            $stmtFind = $db->prepare('SELECT user_id FROM breeders WHERE id = :id');
-            $stmtFind->execute(['id' => $breederId]);
+            // 1. Verificar que el criador exista y obtener su id_usuario
+            $stmtFind = $db->prepare('SELECT id_usuario FROM criador WHERE id_criador = :id_criador');
+            $stmtFind->execute(['id_criador' => $breederId]);
             $userId = $stmtFind->fetchColumn();
 
             if ($userId === false) {
@@ -100,16 +100,16 @@ class Breeder extends BaseModel {
 
             // 2. Verificar que el correo o número de socio no estén ocupados por otro registro
             $stmtDup = $db->prepare(
-                'SELECT 1 FROM users u
-                 INNER JOIN breeders b ON b.user_id = u.id
-                 WHERE (u.email = :email AND u.id <> :user_id)
-                    OR (b.member_number = :member_number AND b.id <> :breeder_id)'
+                'SELECT 1 FROM usuario u
+                 INNER JOIN criador c ON c.id_usuario = u.id_usuario
+                 WHERE (u.correo = :correo AND u.id_usuario <> :id_usuario)
+                    OR (c.numero_socio = :numero_socio AND c.id_criador <> :id_criador)'
             );
             $stmtDup->execute([
-                'email'         => $data['email'],
-                'user_id'       => $userId,
-                'member_number' => $data['member_number'],
-                'breeder_id'    => $breederId,
+                'correo'       => $data['correo'],
+                'id_usuario'   => $userId,
+                'numero_socio' => $data['numero_socio'],
+                'id_criador'   => $breederId,
             ]);
 
             if ($stmtDup->fetchColumn() !== false) {
@@ -117,45 +117,46 @@ class Breeder extends BaseModel {
                 return 'conflict';
             }
 
-            // 3. Actualizar tabla breeders
+            // 3. Actualizar tabla criador
             $stmtBreeder = $db->prepare(
-                'UPDATE breeders SET member_number = :member_number WHERE id = :breeder_id'
+                'UPDATE criador SET numero_socio = :numero_socio WHERE id_criador = :id_criador'
             );
             $stmtBreeder->execute([
-                'member_number' => $data['member_number'],
-                'breeder_id'    => $breederId,
+                'numero_socio' => $data['numero_socio'],
+                'id_criador'   => $breederId,
             ]);
 
-            // 4. Actualizar tabla users (con o sin cambio de contraseña)
-            if (!empty($data['password'])) {
+            // 4. Actualizar tabla usuario (con o sin cambio de contraseña)
+            $plainPassword = $data['password'] ?? $data['password_hash'] ?? null;
+            if (!empty($plainPassword)) {
                 $stmtUser = $db->prepare(
-                    'UPDATE users SET name = :name, email = :email, password = :password WHERE id = :user_id'
+                    'UPDATE usuario SET nombre = :nombre, correo = :correo, password_hash = :password_hash WHERE id_usuario = :id_usuario'
                 );
                 $stmtUser->execute([
-                    'name'     => $data['name'],
-                    'email'    => $data['email'],
-                    'password' => password_hash($data['password'], PASSWORD_DEFAULT),
-                    'user_id'  => $userId,
+                    'nombre'        => $data['nombre'],
+                    'correo'        => $data['correo'],
+                    'password_hash' => password_hash((string) $plainPassword, PASSWORD_DEFAULT),
+                    'id_usuario'    => $userId,
                 ]);
             } else {
                 $stmtUser = $db->prepare(
-                    'UPDATE users SET name = :name, email = :email WHERE id = :user_id'
+                    'UPDATE usuario SET nombre = :nombre, correo = :correo WHERE id_usuario = :id_usuario'
                 );
                 $stmtUser->execute([
-                    'name'    => $data['name'],
-                    'email'   => $data['email'],
-                    'user_id' => $userId,
+                    'nombre'     => $data['nombre'],
+                    'correo'     => $data['correo'],
+                    'id_usuario' => $userId,
                 ]);
             }
 
             $db->commit();
 
             return [
-                'id'            => $breederId,
-                'user_id'       => $userId,
-                'name'          => $data['name'],
-                'email'         => $data['email'],
-                'member_number' => $data['member_number'],
+                'id_criador'   => $breederId,
+                'id_usuario'   => $userId,
+                'nombre'       => $data['nombre'],
+                'correo'       => $data['correo'],
+                'numero_socio' => $data['numero_socio'],
             ];
         } catch (Throwable $e) {
             if ($db->inTransaction()) {
@@ -174,8 +175,8 @@ class Breeder extends BaseModel {
         try {
             $db->beginTransaction();
 
-            $stmtBreeder = $db->prepare('DELETE FROM breeders WHERE id = :id RETURNING user_id');
-            $stmtBreeder->execute(['id' => $breederId]);
+            $stmtBreeder = $db->prepare('DELETE FROM criador WHERE id_criador = :id_criador RETURNING id_usuario');
+            $stmtBreeder->execute(['id_criador' => $breederId]);
             $userId = $stmtBreeder->fetchColumn();
 
             if ($userId === false) {
@@ -183,10 +184,10 @@ class Breeder extends BaseModel {
                 return false;
             }
 
-            $stmtUser = $db->prepare('DELETE FROM users WHERE id = :user_id AND role = :role');
+            $stmtUser = $db->prepare('DELETE FROM usuario WHERE id_usuario = :id_usuario AND rol = :rol');
             $stmtUser->execute([
-                'user_id' => (int) $userId,
-                'role'    => 'breeder',
+                'id_usuario' => (int) $userId,
+                'rol'        => 'criador',
             ]);
 
             $db->commit();

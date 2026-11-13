@@ -6,7 +6,7 @@ namespace CanariApp\Backend\Controllers;
 
 use CanariApp\Backend\Helpers\ResponseHelper;
 use CanariApp\Backend\Helpers\AuthHelper;
-use CanariApp\Backend\Models\Criador;
+use CanariApp\Backend\Models\Breeder;
 use CanariApp\Backend\Models\User;
 use Throwable;
 
@@ -88,7 +88,7 @@ class AuthController {
                 'rol' => $rol,
             ]);
 
-            $criadorModel = new Criador();
+            $criadorModel = new Breeder();
             $criadorId = $criadorModel->create([
                 'id_usuario' => $userId,
                 'numero_socio' => $numeroSocio,
