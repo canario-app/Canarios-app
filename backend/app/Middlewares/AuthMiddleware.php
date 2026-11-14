@@ -62,4 +62,22 @@ final class AuthMiddleware {
 
         return $matches[1];
     }
+    
+    /**
+     * Devuelve el rol del usuario autenticado ('criador' o 'administrador').
+     */
+    public static function userRole(): ?string {
+        return self::$currentUser?->rol ?? null;
+    }
+
+    /**
+     * Exige que el usuario autenticado tenga un rol específico (ej. 'administrador').
+     */
+    public static function requireRole(string $requiredRole): void {
+        self::handle();
+
+        if (self::userRole() !== $requiredRole) {
+            ResponseHelper::forbidden('No tienes permisos suficientes para realizar esta acción.');
+        }
+    }
 }

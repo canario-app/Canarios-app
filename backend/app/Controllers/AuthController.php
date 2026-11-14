@@ -6,82 +6,109 @@ namespace CanariApp\Backend\Controllers;
 
 use CanariApp\Backend\Helpers\ResponseHelper;
 use CanariApp\Backend\Helpers\AuthHelper;
+use CanariApp\Backend\Models\Breeder;
 use CanariApp\Backend\Models\User;
+use Throwable;
 
 class AuthController {
-    
     /**
      * Inicia sesión verificando credenciales y devolviendo un JWT.
      */
     public function login(): void {
-        // Leemos el JSON que envía el frontend
         $input = json_decode(file_get_contents('php://input'), true) ?? [];
 
-        $email = $input['email'] ?? null;
+        $correo = $input['correo'] ?? null;
         $password = $input['password'] ?? null;
 
-        if (!$email || !$password) {
+        if (!$correo || !$password) {
             ResponseHelper::badRequest('El correo y la contraseña son obligatorios.');
         }
 
         $userModel = new User();
-        $user = $userModel->findByEmail($email);
+        $user = $userModel->findByCorreo($correo);
 
-        // Si el usuario no existe, o si la contraseña no coincide, rechazamos
-        if (!$user || !$userModel->verifyPassword($password, $user['password'])) {
+        if (!$user || !$userModel->verifyPassword($password, $user['password_hash'])) {
             ResponseHelper::unauthorized('Credenciales incorrectas.');
         }
 
-        // Generamos el token usando el Helper
-        $token = AuthHelper::generateToken($user['id'], $user['email']);
+        $token = AuthHelper::generateToken(
+            $user['id_usuario'],
+            $user['correo'],
+            $user['rol']
+        );
 
-        // Ocultamos la contraseña encriptada antes de devolver los datos al cliente
-        unset($user['password']);
+        unset($user['password_hash']);
 
         ResponseHelper::success([
             'token' => $token,
-            'user' => $user
+            'user' => $user,
         ], 'Inicio de sesión exitoso.');
     }
 
     /**
-     * Registra un nuevo usuario y devuelve un token para sesión automática.
+     * [Admin] Registra un nuevo usuario con rol 'criador' y crea su perfil asociado.
      */
     public function register(): void {
         $input = json_decode(file_get_contents('php://input'), true) ?? [];
 
-        $name = $input['name'] ?? null;
-        $email = $input['email'] ?? null;
-        $password = $input['password'] ?? null;
+        $nombre = trim((string) ($input['nombre'] ?? ''));
+        $correo = trim((string) ($input['correo'] ?? ''));
+        $password = (string) ($input['password'] ?? '');
+        $numeroSocioRaw = $input['numero_socio'] ?? null;
 
-        if (!$name || !$email || !$password) {
+        if ($nombre === '' || $correo === '' || $password === '') {
             ResponseHelper::badRequest('Nombre, correo y contraseña son obligatorios.');
         }
 
+        $numeroSocio = null;
+        if ($numeroSocioRaw !== null && trim((string) $numeroSocioRaw) !== '') {
+            $numeroSocio = trim((string) $numeroSocioRaw);
+            if (mb_strlen($numeroSocio) > 5) {
+                ResponseHelper::validationError([
+                    'numero_socio' => 'El número de socio no puede exceder los 5 caracteres.',
+                ]);
+            }
+        }
+
         $userModel = new User();
-        
-        // Verificamos que el email no esté tomado
-        if ($userModel->findByEmail($email)) {
+
+        if ($userModel->findByCorreo($correo)) {
             ResponseHelper::conflict('El correo ya está registrado en el sistema.');
         }
 
-        // Creamos al usuario (User.php se encargará de encriptar el password)
-        $userId = $userModel->create([
-            'name' => $name,
-            'email' => $email,
-            'password' => $password
-        ]);
+        $rol = 'criador';
 
-        // Generamos un token para que ya entre logueado
-        $token = AuthHelper::generateToken($userId, $email);
+        try {
+            $userModel->beginTransaction();
+
+            $userId = $userModel->create([
+                'nombre' => $nombre,
+                'correo' => $correo,
+                'password' => $password,
+                'rol' => $rol,
+            ]);
+
+            $criadorModel = new Breeder();
+            $criadorId = $criadorModel->create([
+                'id_usuario' => $userId,
+                'numero_socio' => $numeroSocio,
+            ]);
+
+            $userModel->commit();
+        } catch (Throwable $e) {
+            $userModel->rollBack();
+            throw $e;
+        }
 
         ResponseHelper::created([
-            'token' => $token,
             'user' => [
-                'id' => $userId,
-                'name' => $name,
-                'email' => $email
-            ]
-        ], 'Usuario registrado exitosamente.');
+                'id_usuario' => $userId,
+                'id_criador' => $criadorId,
+                'nombre' => $nombre,
+                'correo' => $correo,
+                'rol' => $rol,
+                'numero_socio' => $numeroSocio,
+            ],
+        ], 'Criador registrado exitosamente por el administrador.');
     }
 }

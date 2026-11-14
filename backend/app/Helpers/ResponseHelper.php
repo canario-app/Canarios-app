@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace CanariApp\Backend\Helpers;
 
 final class ResponseHelper {
-    private const JSON_FLAGS = JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR;
+    private const JSON_FLAGS = JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_INVALID_UTF8_SUBSTITUTE | JSON_THROW_ON_ERROR;
 
     /**
      * Envía una respuesta de éxito genérica (200 OK por defecto).
